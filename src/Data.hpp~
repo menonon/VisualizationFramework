@@ -17,13 +17,13 @@ typedef boost::multi_array<double, 4> DataArray;
  * @version developping
  */
 class Data{
-  
-public:
+
+ public:
   Data(Config config);
   ~Data();
   DataArray getData();
-  
-private:
+
+ private:
   int dimension;
   std::string label;
   std::vector<std::string> path;

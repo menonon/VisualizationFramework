@@ -7,20 +7,20 @@
 
 
 class VisualizeMethod{
-  
-public:
+
+ public:
   void draw();
   void init();
   void contextInit();
   void preFrame();
   void intraFrame();
   void postFrame();
-  
 
-  
-private:
-  
-  
 
-  
+
+ private:
+
+
+
+
 };

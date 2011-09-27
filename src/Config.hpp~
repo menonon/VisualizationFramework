@@ -5,12 +5,12 @@
 #include <string>
 
 class Config{
-  
-public:
-  
+
+ public:
+
   Config();
   ~Config();
-  
+
   int getDimension();
   std::string getLabel();
   std::vector<std::string> getPath();
@@ -18,14 +18,14 @@ public:
   void setDimension(int dimension);
   void setLabel(std::string label);
   void setPath(std::vector<std::string> path);
-  
-private:
+
+ private:
   int dimension;
   std::string label;
   std::vector<std::string> path;
-  
-  
-  
+
+
+
 };
 
 #endif
