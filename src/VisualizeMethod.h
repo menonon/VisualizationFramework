@@ -1,4 +1,3 @@
-
 /**
 * VisualizeMethod
 * @author MENO Daisuke (menonon@vizlab.cs.kobe-u.ac.jp)
