@@ -13,7 +13,10 @@ int main(int argc, char* argv){
 
   Kernel* kernel = Kernel::instance();
 
-  std::string ConfigFilePath = argv[argc];
+  /**
+     argument of config file for app.
+  */
+  std::string ConfigFilePath = argv[argc];  
   App* app = new App(ConfigFilePath);
   argc--;
 
