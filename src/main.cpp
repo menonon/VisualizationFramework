@@ -5,16 +5,19 @@
 */
 
 #include <cstdlib>
-
+#include <string>
 #include <vrj/Kernel/Kernel.h>
 
 
 int main(int argc, char* argv){
 
   Kernel* kernel = Kernel::instance();
-  App* app = new App();
-  kernel->init(argc, argv);
 
+  std::string ConfigFilePath = argv[argc];
+  App* app = new App(ConfigFilePath);
+  argc--;
+
+  kernel->init(argc, argv);
   for(int i=1;i<argc;1++){
     kernel->loadConfigFile(argv[i]);
   }
