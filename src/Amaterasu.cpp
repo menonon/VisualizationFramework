@@ -1,5 +1,5 @@
 /**
- * App.cpp
+ * Amaterasu.cpp
  *@author MENO Daisuke (menonon@vizlab.cs.kobe-u.ac.jp)
  *@version developping
  */
@@ -7,8 +7,8 @@
 #include <GL/gl.h>
 #include <string>
 
-App(string path){}
-~App(){}
+Amaterasu(string path){}
+~Amaterasu(){}
 
 
 void App::bufferPreDraw(){}

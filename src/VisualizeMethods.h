@@ -4,10 +4,16 @@
 * @version developping
 */
 
+#ifndef __VisualizeMethod_h
+#define __VisualizeMethod_h
+
+#include <string>
 
 class VisualizeMethod{
   
 public:
+  VisualizeMethod();
+  ~VisualizeMethod();
   void draw();
   void init();
   void contextInit();
@@ -18,7 +24,7 @@ public:
 
   
 private:
-  
+  std::string name;
   
 
   

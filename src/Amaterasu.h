@@ -1,8 +1,11 @@
 /**
- *App.h
+ *Amaterasu.h
  *@author MENO Daisuke (menonon@vizlab.cs.kobe-u.ac.jp)
  *@version developping
 */
+
+#ifndef __Amaterasu_h
+#define __Amaterasu_h
 
 
 #include <vrj/vrjConfig.h>
@@ -11,7 +14,7 @@
 #include <gadget/Type/DigitalInterface.h>
 
 
-class App : public opengl::App{
+class Amaterasu : public opengl::App{
 
  public:
   gadget::PositionInterface Wand;
@@ -21,3 +24,4 @@ class App : public opengl::App{
 
 };
 
+#endif

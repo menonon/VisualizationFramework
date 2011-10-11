@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <string>
 #include <vrj/Kernel/Kernel.h>
-
+#include "Amaterasu.h"
 
 int main(int argc, char* argv){
 
@@ -17,7 +17,7 @@ int main(int argc, char* argv){
      argument of config file for app.
   */
   std::string ConfigFilePath = argv[argc];  
-  App* app = new App(ConfigFilePath);
+  Amaterasu* app = new Amaterasu(ConfigFilePath);
   argc--;
 
   kernel->init(argc, argv);
