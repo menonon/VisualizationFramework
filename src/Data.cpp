@@ -1,3 +1,8 @@
+/**
+ *Data.cpp
+ *@author MENO Daisuke (menonon@vizlab.cs.kobe-u.ac.jp)
+ */
+
 #include "Data.h"
 
 Data::Data(Config config){

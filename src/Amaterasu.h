@@ -16,7 +16,11 @@
 
 class Amaterasu : public opengl::App{
 
+  
+
  public:
+  Amaterasu(string path);
+
   gadget::PositionInterface Wand;
   gadget::PositionInterface Head;
   gadget::DigitalInterface Button0;

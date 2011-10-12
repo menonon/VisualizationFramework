@@ -5,7 +5,8 @@
  */
 
 #include <GL/gl.h>
-#include <string>
+#include "Amaterasu.h"
+
 
 Amaterasu(string path){}
 ~Amaterasu(){}

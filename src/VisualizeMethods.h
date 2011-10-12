@@ -4,16 +4,16 @@
 * @version developping
 */
 
-#ifndef __VisualizeMethod_h
-#define __VisualizeMethod_h
+#ifndef __VisualizeMethods_h
+#define __VisualizeMethods_h
 
 #include <string>
 
-class VisualizeMethod{
+class VisualizeMethods{
   
 public:
-  VisualizeMethod();
-  ~VisualizeMethod();
+  VisualizeMethods();
+  ~VisualizeMethods();
   void draw();
   void init();
   void contextInit();
