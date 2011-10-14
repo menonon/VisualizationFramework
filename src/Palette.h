@@ -9,9 +9,20 @@
 
 class Palette{
  public:
-  Data data;
-  VisualizeMethods vm;
+  Palette();
+  ~Palette();
+
+  void setData(Data* data);
+  void setVisualizeMethods(VisualizeMethods* vm);
+
+  void removeData();
+  void removeVisualizeMethods();
+
+  bool isEmpty();
 
  private:
+  Data* data;
+  VisualizeMethods* vm;  
 
+  
 };

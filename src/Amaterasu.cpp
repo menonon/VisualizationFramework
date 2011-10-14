@@ -12,10 +12,13 @@ Amaterasu(string path){}
 ~Amaterasu(){}
 
 
-void App::bufferPreDraw(){}
-void App::draw(){}
-void App::init(){}
-void App::contextInit(){}
-void App::preFrame(){}
-void App::intraframe(){}
-void App::postFrame(){}
+
+void Amaterasu::init(){}
+void Amaterasu::contextInit(){}
+
+void Amaterasu::bufferPreDraw(){}
+void Amaterasu::draw(){}
+
+void Amaterasu::preFrame(){}
+void Amaterasu::intraframe(){}
+void Amaterasu::postFrame(){}
