@@ -30,7 +30,5 @@ int main(int argc, char* argv){
   kernel->waitForKernelStop();
 
   delete app;
-  return EXIT_SUCCESS
-
-
+  return EXIT_SUCCESS;
 }

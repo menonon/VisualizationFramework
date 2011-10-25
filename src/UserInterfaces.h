@@ -4,27 +4,38 @@
 * @version developping
 */
 
-#ifndef __UserInterface_h
-#define __UserInterface_h
+#ifndef __UserInterfaces_h
+#define __UserInterfaces_h
 
 
 #include <gadget/Type/PositionInterface.h>
 #include <gadget/Type/AnalogInterface.h>
 #include <gadget/Type/DigitalInterface.h>
+#include <gmtl/Matrix.h>
 
 
-class UserInterface{
+class UserInterfaces{
   
  public:
+  void init();
+  void preFrame();
 
+  gmtl::Matrix44f wand;
+  gmtl::Matrix44f head;
+
+  
 
  private:
-  gadget::PositionInterface Wand;
-  gadget::PositionInterface Head;
+  gadget::PositionInterface gWand;
+  gadget::PositionInterface gHead;
   
-  gadget::DigitalInterface Button0;
-  gadget::DigitalInterface Button1;
+  gadget::DigitalInterface gButton0;
+  gadget::DigitalInterface gButton1;
 
-  //  gadget::AnalogInterface JoyStick0X;
-  //  gadget::AnalogInterface JoyStick0Y;
+  gadget::AnalogInterface gJoyStick0X;
+  gadget::AnalogInterface gJoyStick0Y;
+
+  
+
+
 };

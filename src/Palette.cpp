@@ -20,7 +20,7 @@ void Palette::removeVisualizeMethods(){
   this.vm = NULL;
 }
 
-bool Palette::isEmpty(){
-  if((this.data==NULL)&&(this.vm==NULL))return true;
+bool Palette::isFull(){
+  if((this.data!=NULL)&&(this.vm!=NULL))return true;
   else return false;
 }

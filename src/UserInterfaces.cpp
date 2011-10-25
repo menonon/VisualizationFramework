@@ -1,14 +1,16 @@
-#include "UserInterface.h"
+#include "UserInterfaces.h"
 
-UserInterface::init(){
+UserInterfaces::init(){
 
-  Wand.init("VJWand");
-  Head.init("VJHead");
+  gWand.init("VJWand");
+  gHead.init("VJHead");
 
-  Button0.init("VJButton0");
-  Button1.init("VJButton1");
+  gButton0.init("VJButton0");
+  gButton1.init("VJButton1");
 
-  
-
-
+  gJoyStick0X.init("VJAnalog0");
+  gJoyStick0Y.init("VJAnalog1");
 }
+
+
+UserInterfaces::preFrame(){}

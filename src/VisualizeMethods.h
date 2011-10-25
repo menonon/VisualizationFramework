@@ -8,11 +8,12 @@
 #define __VisualizeMethods_h
 
 #include <string>
+#include "UserInterfaces.h"
 
 class VisualizeMethods{
   
 public:
-  VisualizeMethods();
+  VisualizeMethods(UserInterfaces* ui);
   ~VisualizeMethods();
   void draw();
   void init();
@@ -29,3 +30,5 @@ private:
 
   
 };
+
+#endif

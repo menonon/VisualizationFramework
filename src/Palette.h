@@ -3,6 +3,9 @@
  *@author MENO Daisuke (menonon@vizlab.cs.kobe-u.ac.jp)
  */
 
+#ifndef __Palette_h
+#define __Palette_h
+
 #include "Data.h"
 #include "VisualizeMethods.h"
 
@@ -18,7 +21,7 @@ class Palette{
   void removeData();
   void removeVisualizeMethods();
 
-  bool isEmpty();
+  bool isFull();
 
  private:
   Data* data;
@@ -26,3 +29,5 @@ class Palette{
 
   
 };
+
+#endif
