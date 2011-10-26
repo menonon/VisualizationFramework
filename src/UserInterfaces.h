@@ -22,6 +22,11 @@ class UserInterfaces{
 
   gmtl::Matrix44f wand;
   gmtl::Matrix44f head;
+  float joyStick0X;
+  float joyStick0Y;
+  int button0;
+  int button1;
+  int button2;
 
   
 
@@ -34,8 +39,5 @@ class UserInterfaces{
 
   gadget::AnalogInterface gJoyStick0X;
   gadget::AnalogInterface gJoyStick0Y;
-
-  
-
 
 };

@@ -8,12 +8,15 @@
 #include "Amaterasu.h"
 
 
-Amaterasu(string path){}
+Amaterasu(string path){
+  this.configPath = path;
+}
 ~Amaterasu(){}
 
 
 
 void Amaterasu::init(){}
+
 void Amaterasu::contextInit(){}
 
 void Amaterasu::bufferPreDraw(){}

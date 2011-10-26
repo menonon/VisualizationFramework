@@ -9,11 +9,9 @@
 #ifndef __Amaterasu_h
 #define __Amaterasu_h
 
-
+#include <string>
 #include <vrj/vrjConfig.h>
 #include <vrj/Draw/OpenGL/App.h>
-#include <gadget/Type/PositionInterface.h>
-#include <gadget/Type/DigitalInterface.h>
 
 
 class Amaterasu : public vrj::opengl::App{
@@ -22,8 +20,8 @@ class Amaterasu : public vrj::opengl::App{
   Amaterasu(string path);
 
  private:
-  UserInterfaces ui;
-
+  UserInterfaces* ui;
+  std::string configPath;
 };
 
 #endif
