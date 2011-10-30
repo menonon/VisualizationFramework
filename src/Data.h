@@ -7,6 +7,7 @@
 #include <string>
 
 #include "Config.h"
+#include "Coordinates.h"
 
 typedef boost::multi_array<double, 4> DataArray;
 
@@ -19,15 +20,17 @@ typedef boost::multi_array<double, 4> DataArray;
 class Data{
   
 public:
-  Data(Config config);
+  Data(Config &config,Coordinates &coord);
   ~Data();
-  DataArray getData();
+  DataArray* getData();
   
 private:
   int dimension;
   std::string label;
   std::vector<std::string> path;
   DataArray *data;
+
+  Coordinate* coord;
   
   void loadData();
   

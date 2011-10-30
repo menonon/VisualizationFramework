@@ -1,0 +1,2 @@
+data ABC 3 ../data/ABC/vel_x ../data/ABC/vel_y ../data/ABC/vel_z
+coord coord 3 ../data/ABC/coord_x ../data/ABC/coord_y ../data/ABC/coord_z
