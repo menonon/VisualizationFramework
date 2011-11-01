@@ -26,7 +26,8 @@ public:
   
 private:
   std::string name;
-  
+
+  UserInterfaces* ui;
 
   
 };

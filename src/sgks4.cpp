@@ -18,6 +18,26 @@ public:
 };
 
 
+void reference(vector<Base*> &basearray){
+  using namespace std;
+
+  vector<Base*>::iterator it = basearray.begin();
+  while(it != basearray.end()){
+    (*it)->Func();
+    it++;
+  }
+
+  vector<Base*> basepoint = basearray;
+  vector<Base*>::iterator itt = basepoint.begin();
+  while(itt != basepoint.end()){
+    (*itt)->Func();
+    itt++;
+  }
+
+  
+  
+}
+
 int main(){
   using namespace std;
 
@@ -42,6 +62,8 @@ int main(){
     it++;
   }
   
+  reference(baseArray);
+
 
   return 0;
 }

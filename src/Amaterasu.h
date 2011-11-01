@@ -25,14 +25,27 @@ class Amaterasu : public vrj::opengl::App{
 
  public:
   Amaterasu(std::string path);
+  ~Amaterasu();
+
+  virtual void draw();
+  virtual void init();
+  virtual void preFrame();
+  virtual void intraFrame();
+  virtual void postFrame();
+  virtual void contextInit();
+  virtual void bufferPreDraw();
 
  private:
   UserInterfaces* ui;
   Menu* menu;
-  std::string configPath;
-  std::vector<Config> conf_arr;
-  std::vector<Data> data_arr;
   Coordinates* coord;
+
+  std::string configPath;
+  std::vector<Config*> conf_arr;
+  std::vector<Data*> data_arr;
+  std::vector<VisualizeMethods*> vm_arr;
+  
+
   void parseConfigFile();
 };
 

@@ -5,24 +5,24 @@ Config::Config(){}
 
 
 int Config::getDimension(){
-  return this.dimension;
+  return dimension;
 }
 
 std::string Config::getLabel(){
-  return this.label;
+  return label;
 }
 
 std::vector<std::string> Config::getPath(){
-  return this.path;
+  return path;
 }
 
-void Config::setDimension(int dimension){
-  this.dimension = dimension;
+void Config::setDimension(int dim){
+  dimension = dim;
 }
 
-void Config::setLabel(std::string label){
-  this.label = label;
+void Config::setLabel(std::string lab){
+  label = lab;
 }
-void Config::setPath(std::vector<std::string> path){
-  this.path = path;
+void Config::setPath(std::vector<std::string> path_){
+  path = path_;
 }

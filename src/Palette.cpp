@@ -1,26 +1,26 @@
 #include "Palette.h"
 
 Palette::Palette(){
-  this.data = NULL;
-  this.vm = NULL;
+  data = NULL;
+  vm = NULL;
 }
 Palette::~Palette(){}
 
-void Palette::setData(Data* data){
-  this.data = data;
+void Palette::setData(Data* data_){
+  data = data_;
 }
-void Palette::setVisualizeMethods(VisualizeMethods* vm){
-  this.vm = vm;
+void Palette::setVisualizeMethods(VisualizeMethods* vm_){
+  vm = vm_;
 }
 
 void Palette::removeData(){
-  this.data = NULL;
+  data = NULL;
 }
 void Palette::removeVisualizeMethods(){
-  this.vm = NULL;
+  vm = NULL;
 }
 
 bool Palette::isFull(){
-  if((this.data!=NULL)&&(this.vm!=NULL))return true;
+  if((data!=NULL)&&(vm!=NULL))return true;
   else return false;
 }

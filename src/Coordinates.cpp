@@ -1,16 +1,22 @@
 #include "Coordinates.h"
 #include <fstream>
+#include <iostream>
 
 Coordinates::Coordinates(std::vector<std::string> path){
 
-  std::ifstream ifs();
+  std::cout << __FILE__ << std::endl;
+
+  std::ifstream ifs;
   double temp=0;
   int i=0;
 
-  for(std::vector<std::vector>::iterator it = path.begin(); it!=path.end(); it++){
-    ifs.open((*it).c_str());
+  for(std::vector<std::string>::iterator it = path.begin(); it!=path.end(); it++){
+    std::cout << (*it).c_str() << std::endl;
+    ifs.open((*it).c_str(),std::ios::binary);
+    ifs.seekg(4,std::ios::beg);
     while(!ifs.eof()){
       ifs.read((char*)&temp,sizeof(double));
+      std::cout << temp << std::endl;
       if(i==0)x.push_back(temp);
       else if(i==1)y.push_back(temp);
       else if(i==2)z.push_back(temp);
@@ -19,9 +25,14 @@ Coordinates::Coordinates(std::vector<std::string> path){
     ifs.close();
   }
   
+  std::cout << getZnum() <<  getYnum() <<  getXnum() << std::endl;
+
+
   x.pop_back();
   y.pop_back();
   z.pop_back();
+
+  std::cout << getZnum() <<  getYnum() <<  getXnum() << std::endl;
 }
 
 

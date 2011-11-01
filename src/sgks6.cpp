@@ -24,4 +24,6 @@ int main(){
 
   cout << key << ":" << lab << ":" << dim << ":" << path << endl;
 
+
+  if(key.compare("data")==0)cout << "EQ" << endl;
 }

@@ -28,7 +28,7 @@ class Menu{
   void selectVM(int num);
 
   
-
+  void init(std::vector<Data*> &data, std::vector<VisualizeMethods*> &vm);
   void preFrame();
 
  private:
@@ -38,9 +38,9 @@ class Menu{
   int selectedVM;
 
 
-  std::vector<Data> allData;
-  std::vector<VisualizeMethods> allVM;
-  std::vector<Palette> allPalette;
+  std::vector<Data*> allData;
+  std::vector<VisualizeMethods*> allVM;
+  std::vector<Palette*> allPalette;
 
 
   UserInterfaces* ui;

@@ -8,7 +8,7 @@ int main(){
 
   using namespace std;
 
-  ifstream ifs("../data/dynamo/dynamo.x");
+  ifstream ifs("../data/test/test-coord.x");
   vector<double> dbl;
   double dbl_temp;
 

@@ -20,7 +20,7 @@ typedef boost::multi_array<double, 4> DataArray;
 class Data{
   
 public:
-  Data(Config &config,Coordinates &coord);
+  Data(Config* config,Coordinates* coord);
   ~Data();
   DataArray* getData();
   
@@ -30,7 +30,7 @@ private:
   std::vector<std::string> path;
   DataArray *data;
 
-  Coordinate* coord;
+  Coordinates* coord;
   
   void loadData();
   

@@ -29,13 +29,13 @@
 # This requires GNU make.
 # -----------------------------------------------------------------------------
 
-all: simpleInput
+all: Amaterasu
 
-APP_NAME=	simpleInput
+APP_NAME=	Amaterasu
 
 # Basic options.
 srcdir=		.
-SRCS=		main.cpp
+SRCS=		main.cpp Amaterasu.cpp Coordinates.cpp Config.cpp Data.cpp Menu.cpp Palette.cpp UserInterfaces.cpp 
 
 DZR_BASE_DIR=	$(shell flagpoll doozer --get-prefix)
 include $(DZR_BASE_DIR)/ext/vrjuggler/dzr.vrjuggler.mk
@@ -44,5 +44,5 @@ include $(DZR_BASE_DIR)/ext/vrjuggler/dzr.vrjuggler.glapp.mk
 # -----------------------------------------------------------------------------
 # Application build targets.
 # -----------------------------------------------------------------------------
-simpleInput: $(OBJS)
+Amaterasu: $(OBJS)
 	$(LINK) $(LINK_OUT)$@ $(OBJS) $(EXTRA_LIBS) $(LIBS)

@@ -8,11 +8,14 @@
 #include "Amaterasu.h"
 #include <fstream>
 #include <vector>
+#include <ostream>
 
-Amaterasu(std::string path){
-  this.configPath = path;
+Amaterasu::Amaterasu(std::string path){
+  std::cout << __FILE__ << std::endl;
+
+  configPath = path;
 }
-~Amaterasu(){}
+Amaterasu::~Amaterasu(){}
 
 void Amaterasu::parseConfigFile(){
   
@@ -24,51 +27,68 @@ void Amaterasu::parseConfigFile(){
   std::vector<std::string> path;
   
   while(!ifs.eof()){
+    std::cout << "aaa" << std::endl;
     path.clear();
 
     ifs >> keyword;
-    if(keyword.compare("data")){
+    if(keyword.compare("data")==0){
       ifs >> label >> dimension;
       for(int i=0;i<dimension;i++){
 	std::string temp;
 	ifs >> temp;
 	path.push_back(temp);
       }
-      Config conf = new Config();
-      conf.setLabel(label);
-      conf.setDimension(dimension);
-      conf.setPath(path);
+      Config* conf = new Config();
+      conf->setLabel(label);
+      conf->setDimension(dimension);
+      conf->setPath(path);
       conf_arr.push_back(conf);
+      keyword.clear();
     }
-    else if(keyword.compare("coord")){
+    else if(keyword.compare("coord")==0){
       for(int i=0;i<3;i++){
 	std::string temp;
 	ifs >> temp;
 	path.push_back(temp);
       }
       coord = new Coordinates(path);
+      keyword.clear();
+    }
+    else{
+      ifs.close();
+      return;
     }
   }
+
   
 }
 
 void Amaterasu::init(){
-  parseConfigFile();
   
-  for(std::vector<Config>::iterator it = conf_arr.begin();it!=conf_arr.end();it++){
-    Data data_temp = new Data((*it), coord);
+  std::cout << __FILE__ << ":init" << std::endl;
+  parseConfigFile();
+  std::cout << "bbb" << std::endl;
+  for(std::vector<Config*>::iterator it = conf_arr.begin();it!=conf_arr.end();it++){
+    Data* data_temp = new Data((*it), coord);
     data_arr.push_back(data_temp);
   }
 
   ui = new UserInterfaces();
   ui->init();
+
+  
+
+  menu = new Menu(ui);
+  menu->init(data_arr,vm_arr);
+
+  
   
 }
 
 void Amaterasu::contextInit(){}
 
 void Amaterasu::bufferPreDraw(){}
-void Amaterasu::draw(){}
+void Amaterasu::draw(){;}
 
 void Amaterasu::preFrame(){
 
@@ -76,5 +96,5 @@ void Amaterasu::preFrame(){
   menu->preFrame();
 
 }
-void Amaterasu::intraframe(){}
+void Amaterasu::intraFrame(){}
 void Amaterasu::postFrame(){}

@@ -1,6 +1,12 @@
 #include "UserInterfaces.h"
+#include <ostream>
 
-UserInterfaces::init(){
+UserInterfaces::UserInterfaces(){
+  std::cout << __FILE__ << std::endl;
+}
+
+
+void UserInterfaces::init(){
 
   gWand.init("VJWand");
   gHead.init("VJHead");
@@ -15,7 +21,7 @@ UserInterfaces::init(){
 }
 
 
-UserInterfaces::preFrame(){
+void UserInterfaces::preFrame(){
   wand = gWand->getData();
   head = gHead->getData();
   

@@ -17,6 +17,9 @@
 class UserInterfaces{
   
  public:
+  UserInterfaces();
+  ~UserInterfaces();
+
   void init();
   void preFrame();
 
@@ -41,3 +44,4 @@ class UserInterfaces{
   gadget::AnalogInterface gJoyStick0Y;
 
 };
+#endif
