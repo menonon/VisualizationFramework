@@ -13,7 +13,7 @@
 #include "VisualizeMethods.h"
 #include "Palette.h"
 #include "UserInterfaces.h"
-
+#include <gadget/Type/DigitalInterface.h>
 
 class Menu{
 
@@ -29,7 +29,9 @@ class Menu{
 
   
   void init(std::vector<Data*> &data, std::vector<VisualizeMethods*> &vm);
+  void draw();
   void preFrame();
+  void intraFrame();
 
  private:
 
@@ -37,6 +39,7 @@ class Menu{
   int selectedData;
   int selectedVM;
 
+  int state;
 
   std::vector<Data*> allData;
   std::vector<VisualizeMethods*> allVM;

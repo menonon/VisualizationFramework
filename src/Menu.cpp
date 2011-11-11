@@ -13,6 +13,7 @@ Menu::Menu(UserInterfaces* ui_){
 
   ui = ui_;
 
+  state =0;
 }
 
 
@@ -43,11 +44,39 @@ void Menu::deletePalette(){
 
 }
 
+void Menu::draw(){
 
+  if(state==0){
+    for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
+      (*it)->draw();
+    }
+  }
+  else if(state==1){
+    /*Draw Menu*/
+  }
+}
 
 
 void Menu::preFrame(){
-
+  if(state==1){
+    if(ui->button0 == gadget::Digital::TOGGLE_ON)createPalette();
+    if(ui->button1 == gadget::Digital::TOGGLE_ON)deletePalette();
+    if(ui->button2 == gadget::Digital::TOGGLE_OFF)state=0;
+  }
+  else if(state==0){
+    if(ui->button2 == gadget::Digital::TOGGLE_ON)state=1;
+  }
   
 
+
+  for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
+    (*it)->preFrame();
+  }
+
+}
+
+void Menu::intraFrame(){
+  for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
+    (*it)->intraFrame();
+  }
 }

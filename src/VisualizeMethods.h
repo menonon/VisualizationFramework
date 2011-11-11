@@ -15,12 +15,13 @@ class VisualizeMethods{
 public:
   VisualizeMethods(UserInterfaces* ui);
   ~VisualizeMethods();
-  void draw();
-  void init();
-  void contextInit();
-  void preFrame();
-  void intraFrame();
-  void postFrame();
+
+  virtual  void draw();
+  virtual  void init();
+  virtual  void contextInit();
+  virtual  void preFrame();
+  virtual  void intraFrame();
+  virtual  void postFrame();
   
 
   

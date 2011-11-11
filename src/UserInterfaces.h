@@ -39,9 +39,11 @@ class UserInterfaces{
   
   gadget::DigitalInterface gButton0;
   gadget::DigitalInterface gButton1;
+  gadget::DigitalInterface gButton2;
 
   gadget::AnalogInterface gJoyStick0X;
   gadget::AnalogInterface gJoyStick0Y;
 
+  gmtl::Matrix44f navMat;
 };
 #endif

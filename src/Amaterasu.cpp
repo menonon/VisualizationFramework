@@ -87,8 +87,17 @@ void Amaterasu::init(){
 
 void Amaterasu::contextInit(){}
 
-void Amaterasu::bufferPreDraw(){}
-void Amaterasu::draw(){;}
+void Amaterasu::bufferPreDraw(){
+  glClearColor(0.0,0.0,0.0,0.0);
+  glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Amaterasu::draw(){
+  glClear(GL_DEPTH_BUFFER_BIT);
+
+  menu->draw();
+
+}
 
 void Amaterasu::preFrame(){
 
@@ -96,5 +105,8 @@ void Amaterasu::preFrame(){
   menu->preFrame();
 
 }
-void Amaterasu::intraFrame(){}
+void Amaterasu::intraFrame(){
+
+  Menu->intraFrame();
+}
 void Amaterasu::postFrame(){}
