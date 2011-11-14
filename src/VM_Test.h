@@ -21,8 +21,11 @@ class VM_Test : public VisualizeMethods{
 
 
  private:
-  
+  std::vector<double> vertex;
+  std::vector<double> color;
 
+  UserInterfaces* ui;
+  Data* data;
 
 };
 #endif

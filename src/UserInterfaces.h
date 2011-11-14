@@ -22,6 +22,7 @@ class UserInterfaces{
 
   void init();
   void preFrame();
+  void draw();
 
   gmtl::Matrix44f wand;
   gmtl::Matrix44f head;

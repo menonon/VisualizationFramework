@@ -95,6 +95,7 @@ void Amaterasu::bufferPreDraw(){
 void Amaterasu::draw(){
   glClear(GL_DEPTH_BUFFER_BIT);
 
+  ui->draw();
   menu->draw();
 
 }
