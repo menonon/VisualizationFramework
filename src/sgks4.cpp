@@ -6,15 +6,16 @@ using namespace std;
 
 class Base{
 public:
-  Base(){using namespace std;cout << "Base Constr" << endl;}
-  virtual void Func(){std::cout<<"BaseFunc"<<std::endl;}
+  Base(){using namespace std;cout << "Base Constr" << endl;var=100;}
+  virtual void Func(){std::cout<<"BaseFunc"<< var <<std::endl;}
+  int var;
 };
 
 class Sub:public Base{
 public:
-  Sub(){using namespace std;cout << "Sub Constr" << endl;}
+  Sub(){using namespace std;cout << "Sub Constr" << endl;var=200;}
   Sub(int num){using namespace std;cout << "Sub COnstr(num)"<<endl;}
-  virtual void Func(){std::cout<<"SubFunc"<<std::endl;}
+  virtual void Func(){std::cout<<"SubFunc"<< var <<std::endl;}
 };
 
 

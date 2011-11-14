@@ -9,11 +9,15 @@
 
 #include <string>
 #include "UserInterfaces.h"
+#include "Data.h"
 
 class VisualizeMethods{
   
 public:
-  VisualizeMethods(UserInterfaces* ui);
+  VisualizeMethods(UserInterfaces* _ui, Data* _data){
+    ui = _ui;
+    data = _data;
+  }
   ~VisualizeMethods();
 
   virtual  void draw();
@@ -29,7 +33,7 @@ private:
   std::string name;
 
   UserInterfaces* ui;
-
+  Data* data;
   
 };
 

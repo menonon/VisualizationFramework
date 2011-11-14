@@ -61,3 +61,7 @@ void Data::loadData(){
 DataArray* Data::getData(){
   return data;
 }
+
+Coordinates* Data::getCoord(){
+  return coord;
+}

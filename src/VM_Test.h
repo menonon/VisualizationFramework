@@ -5,7 +5,12 @@
 
 #include "VisualizeMethods.h"
 
+
 class VM_Test : public VisualizeMethods{
+
+ public:
+  VM_Test(UserInterfaces* ui, Data* data);
+  ~VM_Test();
 
   void draw();
   void init();
@@ -13,6 +18,10 @@ class VM_Test : public VisualizeMethods{
   void preFrame();
   void intraFrame();
   void postFrame();
+
+
+ private:
+  
 
 
 };

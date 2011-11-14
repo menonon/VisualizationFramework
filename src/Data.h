@@ -23,6 +23,7 @@ public:
   Data(Config* config,Coordinates* coord);
   ~Data();
   DataArray* getData();
+  Coordinates* getCoord();
   
 private:
   int dimension;
