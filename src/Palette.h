@@ -23,6 +23,12 @@ class Palette{
 
   bool isFull();
 
+  void draw();
+  void preFrame();
+  void intraFrame();
+
+
+
  private:
   Data* data;
   VisualizeMethods* vm;  

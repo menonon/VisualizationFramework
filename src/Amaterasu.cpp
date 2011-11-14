@@ -108,6 +108,6 @@ void Amaterasu::preFrame(){
 }
 void Amaterasu::intraFrame(){
 
-  Menu->intraFrame();
+  menu->intraFrame();
 }
 void Amaterasu::postFrame(){}

@@ -24,3 +24,9 @@ bool Palette::isFull(){
   if((data!=NULL)&&(vm!=NULL))return true;
   else return false;
 }
+
+void Palette::draw(){}
+
+void Palette::preFrame(){}
+
+void Palette::intraFrame(){}
