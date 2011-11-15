@@ -9,7 +9,7 @@
 class VM_Test : public VisualizeMethods{
 
  public:
-  VM_Test(UserInterfaces* ui, Data* data);
+  VM_Test();
   ~VM_Test();
 
   void draw();

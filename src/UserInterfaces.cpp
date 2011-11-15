@@ -41,7 +41,7 @@ void UserInterfaces::preFrame(){
   joyStick0X = (gJoyStick0X->getData() -0.5);
   joyStick0Y = (gJoyStick0Y->getData() -0.5);
 
-  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
+  //  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
   
   /* Navigation */
   if(joyStick0Y>0.001 || joyStick0Y<-0.001){

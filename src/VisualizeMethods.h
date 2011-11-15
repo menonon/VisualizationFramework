@@ -14,11 +14,12 @@
 class VisualizeMethods{
   
 public:
+  VisualizeMethods(){;}
   VisualizeMethods(UserInterfaces* _ui, Data* _data){
     ui = _ui;
     data = _data;
   }
-  ~VisualizeMethods();
+  virtual ~VisualizeMethods(){;}
 
   virtual  void draw();
   virtual  void init();
