@@ -25,10 +25,17 @@ class Coordinates{
   double getY(int at);
   double getZ(int at);
 
+  void draw();
+
+
  private:
   std::vector<double> x;
   std::vector<double> y;
   std::vector<double> z;
 
+  void drawBoundingBox();
+  void createBoundingBox();
+  std::vector<double> boxVertex;
+  std::vector<double> boxColor;
 };
 #endif
