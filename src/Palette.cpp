@@ -25,8 +25,14 @@ bool Palette::isFull(){
   else return false;
 }
 
-void Palette::draw(){}
+void Palette::draw(){
+  vm->draw();
+}
 
-void Palette::preFrame(){}
+void Palette::preFrame(){
+  vm->preFrame();
+}
 
-void Palette::intraFrame(){}
+void Palette::intraFrame(){
+  vm->intraFrame();
+}

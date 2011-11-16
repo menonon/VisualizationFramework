@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <ostream>
+#include "VM_Test.h"
 
 Amaterasu::Amaterasu(std::string path){
   std::cout << __FILE__ << std::endl;
@@ -76,7 +77,6 @@ void Amaterasu::init(){
   ui = new UserInterfaces();
   ui->init();
 
-  
 
   menu = new Menu(ui);
   menu->init(data_arr,vm_arr);

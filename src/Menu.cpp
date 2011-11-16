@@ -1,6 +1,6 @@
 #include <ostream>
 #include "Menu.h"
-
+#include "VM_Test.h"
 
 
 Menu::Menu(UserInterfaces* ui_){
@@ -25,13 +25,19 @@ void Menu::init(std::vector<Data*> &data, std::vector<VisualizeMethods*> &vm){
   allData = data;
   allVM = vm;
 
+  
+  
 }
 
 
 void Menu::createPalette(){
   
   allPalette.push_back(new Palette());
-  
+
+  VM_Test* vm_test = new VM_Test(ui,allData.at(selectedData));
+  vm_test->init();
+  allVM.push_back(vm_test);
+
   allPalette.back()->setData(allData.at(selectedData));
   allPalette.back()->setVisualizeMethods(allVM.at(selectedVM));
   
@@ -58,6 +64,7 @@ void Menu::draw(){
 
 
 void Menu::preFrame(){
+  std::cout << __FILE__ << ":state:" << state <<std::endl;
   if(state==1){
     if(ui->button0 == gadget::Digital::TOGGLE_ON)createPalette();
     if(ui->button1 == gadget::Digital::TOGGLE_ON)deletePalette();

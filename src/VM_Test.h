@@ -6,10 +6,11 @@
 #include "VisualizeMethods.h"
 
 
-class VM_Test : public VisualizeMethods{
+class VM_Test:public VisualizeMethods{
 
  public:
   VM_Test();
+  VM_Test(UserInterfaces* _ui, Data* _data);
   ~VM_Test();
 
   void draw();
@@ -24,8 +25,6 @@ class VM_Test : public VisualizeMethods{
   std::vector<double> vertex;
   std::vector<double> color;
 
-  UserInterfaces* ui;
-  Data* data;
 
 };
 #endif

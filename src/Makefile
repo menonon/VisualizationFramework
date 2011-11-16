@@ -35,7 +35,7 @@ APP_NAME=	Amaterasu
 
 # Basic options.
 srcdir=		.
-SRCS=		main.cpp Amaterasu.cpp Coordinates.cpp Config.cpp Data.cpp Menu.cpp Palette.cpp UserInterfaces.cpp VisualizeMethods.h VM_Test.cpp
+SRCS=		main.cpp Amaterasu.cpp Coordinates.cpp Config.cpp Data.cpp VisualizeMethods.cpp VM_Test.cpp Menu.cpp Palette.cpp UserInterfaces.cpp
 
 DZR_BASE_DIR=	$(shell flagpoll doozer --get-prefix)
 include $(DZR_BASE_DIR)/ext/vrjuggler/dzr.vrjuggler.mk

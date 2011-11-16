@@ -14,12 +14,9 @@
 class VisualizeMethods{
   
 public:
-  VisualizeMethods(){;}
-  VisualizeMethods(UserInterfaces* _ui, Data* _data){
-    ui = _ui;
-    data = _data;
-  }
-  virtual ~VisualizeMethods(){;}
+  VisualizeMethods();
+  VisualizeMethods(UserInterfaces* _ui, Data* _data);
+  virtual ~VisualizeMethods();
 
   virtual  void draw();
   virtual  void init();
@@ -29,8 +26,6 @@ public:
   virtual  void postFrame();
   
 
-  
-private:
   std::string name;
 
   UserInterfaces* ui;
