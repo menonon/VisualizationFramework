@@ -41,20 +41,28 @@ void UserInterfaces::preFrame(){
   joyStick0X = (gJoyStick0X->getData() -0.5);
   joyStick0Y = (gJoyStick0Y->getData() -0.5);
 
-  //  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
+  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
   
   /* Navigation */
   if(joyStick0Y>0.001 || joyStick0Y<-0.001){
-    gmtl::Vec3f z_dir = gmtl::Vec3f(0,0,joyStick0Y);
+    gmtl::Vec3f z_dir = gmtl::Vec3f(0,0,joyStick0Y*0.01);
     gmtl::Vec3f dir(wand*z_dir);
     gmtl::preMult(navMat, gmtl::makeTrans<gmtl::Matrix44f>(dir));
-  }
+  }else{
+    gmtl::Vec3f z_dir = gmtl::Vec3f(0,0,0);
+    gmtl::Vec3f dir(wand*z_dir);
+    gmtl::preMult(navMat, gmtl::makeTrans<gmtl::Matrix44f>(dir));}
+
 
   if(joyStick0X>0.001 || joyStick0X<-0.001){
     const float rotScale(0.01);
     float yRot = joyStick0X;
     float rotation = -1.0 * yRot * rotScale;
     gmtl::preMult(navMat, gmtl::makeRot<gmtl::Matrix44f>(gmtl::EulerAngleXYZf(0.0,rotation,0.0)));
+  }else{
+    const float rotScale(0.01);
+    float yRot = 0;
+    float rotation = -1.0 * yRot * rotScale;
+    gmtl::preMult(navMat, gmtl::makeRot<gmtl::Matrix44f>(gmtl::EulerAngleXYZf(0.0,rotation,0.0)));
   }
-
 }
