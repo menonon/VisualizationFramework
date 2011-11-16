@@ -1,6 +1,7 @@
 #include "Coordinates.h"
 #include <fstream>
 #include <iostream>
+#include <GL/gl.h>
 
 Coordinates::Coordinates(std::vector<std::string> path){
 
@@ -33,6 +34,10 @@ Coordinates::Coordinates(std::vector<std::string> path){
   z.pop_back();
 
   std::cout << getZnum() <<  getYnum() <<  getXnum() << std::endl;
+
+
+  createBoundingBox();
+
 }
 
 
@@ -58,4 +63,57 @@ double Coordinates::getY(int at){
 
 double Coordinates::getZ(int at){
   return z.at(at);
+}
+
+
+void Coordinates::draw(){
+  drawBoundingBox();
+}
+
+void Coordinates::drawBoundingBox(){
+  glEnableClientState(GL_VERTEX_ARRAY);
+  glEnableClientState(GL_COLOR_ARRAY);
+
+  glVertexPointer(3,GL_DOUBLE,0,&boxVertex[0]);
+  glColorPointer(3,GL_DOUBLE,0,&boxColor[0]);
+
+  glLineWidth(3);
+  glDrawArrays(GL_LINES,0,(boxVertex.size()+1)/3);
+  glLineWidth(1);
+
+  glDisableClientState(GL_COLOR_ARRAY);
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+void Coordinates::createBoundingBox(){
+
+  /* X */
+  for(int j=0; j<getYnum(); j+=getYnum()-1)for(int k=0; k<getZnum(); k+=getZnum()-1){
+    boxVertex.push_back(x.front());boxVertex.push_back(y[j]);boxVertex.push_back(z[k]);
+    boxVertex.push_back(x.back()); boxVertex.push_back(y[j]);boxVertex.push_back(z[k]);
+    
+    boxColor.push_back(1);boxColor.push_back(0);boxColor.push_back(0);
+    boxColor.push_back(1);boxColor.push_back(0);boxColor.push_back(0);
+  }
+  
+  /* Y */
+  for(int i=0; i<getXnum(); i+=getXnum()-1)for(int k=0; k<getZnum(); k+=getZnum()-1){
+    boxVertex.push_back(x[i]);boxVertex.push_back(y.front());boxVertex.push_back(z[k]);
+    boxVertex.push_back(x[i]);boxVertex.push_back(y.back()); boxVertex.push_back(z[k]);
+    
+    boxColor.push_back(0);boxColor.push_back(1);boxColor.push_back(0);
+    boxColor.push_back(0);boxColor.push_back(1);boxColor.push_back(0);
+  }
+  
+  /* Z */
+  for(int i=0; i<getXnum(); i+=getXnum()-1)for(int j=0; j<getYnum(); j+=getYnum()-1){
+    boxVertex.push_back(x[i]);boxVertex.push_back(y[j]);boxVertex.push_back(z.front());
+    boxVertex.push_back(x[i]);boxVertex.push_back(y[j]);boxVertex.push_back(z.back());
+    
+    boxColor.push_back(0);boxColor.push_back(0);boxColor.push_back(1);
+    boxColor.push_back(0);boxColor.push_back(0);boxColor.push_back(1);
+  }
+
+
+
 }

@@ -97,6 +97,7 @@ void Amaterasu::draw(){
 
   ui->draw();
   menu->draw();
+  coord->draw();
 
 }
 

@@ -16,11 +16,11 @@ void VM_Test::draw(){
   glEnableClientState(GL_COLOR_ARRAY);
 
   glVertexPointer(3,GL_DOUBLE,0,&vertex[0]);
-  glColorPointer(3,GL_DOUBLE,0,&color[0]);
+  glColorPointer(4,GL_DOUBLE,0,&color[0]);
 
   std::cout << __FILE__ << ":draw B" << std::endl;
 
-  glPointSize(5);
+  glPointSize(10);
   glDrawArrays(GL_POINTS,0,(vertex.size()+1)/3);
   glPointSize(1);
 
@@ -61,10 +61,13 @@ void VM_Test::init(){
   
   for(int i=0; i<coord->getZnum(); ++i)
     for(int j=0; j<coord->getYnum(); ++j)
-      for(int k=0; k<coord->getXnum(); ++k)
+      for(int k=0; k<coord->getXnum(); ++k){
 	for(int n=0;n<3;++n){
 	  color.push_back(((*dataarr)[n][i][j][k]-min)*scale);
 	}
+	color.push_back(0.5);
+      }
+
 
   std::cout << __FILE__ << ":init" << (vertex.size()+1)/3 << std::endl;
 
