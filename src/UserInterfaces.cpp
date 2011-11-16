@@ -43,11 +43,17 @@ void UserInterfaces::preFrame(){
 
   //  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
   
+  //  std::cout << "wand" << wand << std::endl;
+  //std::cout << "head" << head << std::endl;
+
+
   /* Navigation */
   if(joyStick0Y>0.001 || joyStick0Y<-0.001){
     gmtl::Vec3f z_dir = gmtl::Vec3f(0,0,joyStick0Y);
     gmtl::Vec3f dir(wand*z_dir);
     gmtl::preMult(navMat, gmtl::makeTrans<gmtl::Matrix44f>(dir));
+  }else{
+    
   }
 
   if(joyStick0X>0.001 || joyStick0X<-0.001){
