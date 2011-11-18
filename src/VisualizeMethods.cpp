@@ -12,6 +12,7 @@ VisualizeMethods::~VisualizeMethods(){}
 void VisualizeMethods::draw(){}
 void VisualizeMethods::init(){}
 void VisualizeMethods::contextInit(){}
+void VisualizeMethods::contextPreDraw(){}
 void VisualizeMethods::preFrame(){}
 void VisualizeMethods::intraFrame(){}
 void VisualizeMethods::postFrame(){}

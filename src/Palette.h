@@ -26,7 +26,7 @@ class Palette{
   void draw();
   void preFrame();
   void intraFrame();
-
+  void contextPreDraw();
 
 
  private:

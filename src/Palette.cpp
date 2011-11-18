@@ -36,3 +36,7 @@ void Palette::preFrame(){
 void Palette::intraFrame(){
   vm->intraFrame();
 }
+
+void Palette::contextPreDraw(){
+  vm->contextPreDraw();
+}

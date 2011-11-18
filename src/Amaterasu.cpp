@@ -85,7 +85,14 @@ void Amaterasu::init(){
   
 }
 
-void Amaterasu::contextInit(){}
+void Amaterasu::contextInit(){
+  menu->contextInit();
+}
+
+void Amaterasu::contextPreDraw(){
+  //  std::cout << __FILE__ << ":contextPreDraw" << std::endl;
+  //  menu->contextPreDraw();
+}
 
 void Amaterasu::bufferPreDraw(){
   glClearColor(0.0,0.0,0.0,0.0);

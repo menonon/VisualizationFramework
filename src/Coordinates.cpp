@@ -114,6 +114,20 @@ void Coordinates::createBoundingBox(){
     boxColor.push_back(0);boxColor.push_back(0);boxColor.push_back(1);
   }
 
+}
 
 
+int Coordinates::getXindex(double at){
+  bool sign=false;
+  for(std::vector<double>::iterator it = x.begin();it<x.end();++it){
+    if(at-(*it)>=0){
+      /**/
+    }
+  }
+}
+int Coordinates::getYindex(double at){
+  
+}
+int Coordinates::getZindex(double at){
+  
 }

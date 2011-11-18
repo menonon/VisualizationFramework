@@ -3,7 +3,11 @@
 #ifndef __VM_TEST_H
 #define __VM_TEST_H
 
+#define GL_GLEXT_PROTOTYPES
+#include <GL/gl.h>
+#include <vrj/Draw/OpenGL/ContextData.h>
 #include "VisualizeMethods.h"
+
 
 
 class VM_Test:public VisualizeMethods{
@@ -15,7 +19,7 @@ class VM_Test:public VisualizeMethods{
 
   void draw();
   void init();
-  void contextInit();
+  void contextPreDraw();
   void preFrame();
   void intraFrame();
   void postFrame();
@@ -25,6 +29,8 @@ class VM_Test:public VisualizeMethods{
   std::vector<double> vertex;
   std::vector<double> color;
 
+  vrj::opengl::ContextData<GLuint> vboVertex;
+  vrj::opengl::ContextData<GLuint> vboColor;
 
 };
 #endif

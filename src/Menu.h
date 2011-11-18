@@ -32,6 +32,8 @@ class Menu{
   void draw();
   void preFrame();
   void intraFrame();
+  void contextInit();
+  void contextPreDraw();
 
  private:
 

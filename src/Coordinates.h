@@ -27,6 +27,9 @@ class Coordinates{
 
   void draw();
 
+  int getXindex(double at);
+  int getYindex(double at);
+  int getZindex(double at);
 
  private:
   std::vector<double> x;

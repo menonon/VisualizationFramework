@@ -21,6 +21,7 @@ public:
   virtual  void draw();
   virtual  void init();
   virtual  void contextInit();
+  virtual  void contextPreDraw();
   virtual  void preFrame();
   virtual  void intraFrame();
   virtual  void postFrame();

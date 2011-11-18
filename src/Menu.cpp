@@ -64,7 +64,7 @@ void Menu::draw(){
 
 
 void Menu::preFrame(){
-  std::cout << __FILE__ << ":state:" << state <<std::endl;
+  //  std::cout << __FILE__ << ":state:" << state <<std::endl;
   if(state==1){
     if(ui->button0 == gadget::Digital::TOGGLE_ON)createPalette();
     if(ui->button1 == gadget::Digital::TOGGLE_ON)deletePalette();
@@ -85,5 +85,13 @@ void Menu::preFrame(){
 void Menu::intraFrame(){
   for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
     (*it)->intraFrame();
+  } 
+}
+
+void Menu::contextInit(){}
+
+void Menu::contextPreDraw(){
+  for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
+    (*it)->contextPreDraw();
   }
 }

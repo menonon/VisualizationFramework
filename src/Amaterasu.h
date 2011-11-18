@@ -34,6 +34,7 @@ class Amaterasu : public vrj::opengl::App{
   virtual void postFrame();
   virtual void contextInit();
   virtual void bufferPreDraw();
+  virtual void contextPreDraw();
 
  private:
   UserInterfaces* ui;
