@@ -6,6 +6,7 @@
 #include "Data.h"
 #include <fstream>
 #include <ostream>
+#include <cstdlib>
 
 Data::Data(Config* config,Coordinates* coord_){
 
@@ -64,4 +65,33 @@ DataArray* Data::getData(){
 
 Coordinates* Data::getCoord(){
   return coord;
+}
+
+bool Data::getValue(int dim, double x_pos,double y_pos,double z_pos,double& ret){
+  if(dim>dimension-1)return false;
+
+  int x_index[2]; x_index[0]=coord->getXindex(x_pos); x_index[1]=x_index[0]+1;
+  int y_index[2]; y_index[0]=coord->getYindex(y_pos); y_index[1]=y_index[0]+1;
+  int z_index[2]; z_index[0]=coord->getZindex(z_pos); z_index[1]=z_index[0]+1;
+
+  if(x_index[0]==-1 || y_index[0]==-1 || z_index[0]==-1){std::cout << "cant get value" << std::endl; return false;}
+
+  double x_coor[2]; x_coor[0]=coord->getX(x_index[0]); x_coor[1]=coord->getX(x_index[1]);
+  double y_coor[2]; y_coor[0]=coord->getY(y_index[0]); y_coor[1]=coord->getY(y_index[1]);
+  double z_coor[2]; z_coor[0]=coord->getZ(z_index[0]); z_coor[1]=coord->getZ(z_index[1]);
+
+  double volume_all = 1.0/(x_coor[1]-x_coor[0])*(y_coor[1]-y_coor[0])*(z_coor[1]-z_coor[0]);
+  double volume_part[2][2][2];
+  for(int i=0;i<2;++i)for(int j=0;j<2;++j)for(int k=0;k<2;++k)
+    volume_part[i][j][k] = 1.0 - volume_all * fabs(x_pos-x_coor[i]) * fabs(y_pos-y_coor[i]) * fabs(z_pos-z_coor[i]);
+
+  double value[2][2][2];
+  double ret_=0;
+  for(int i=0;i<2;++i)for(int j=0;j<2;++j)for(int k=0;k<2;++k){
+    value[i][j][k] = (*data)[dim][z_index[k]][y_index[j]][x_index[i]] * volume_part[i][j][k];
+    ret_+=value[i][j][k];
+  }
+
+  ret = ret_;
+  return true;
 }

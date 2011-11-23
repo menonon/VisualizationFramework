@@ -1,0 +1,2 @@
+data DYNAMO 3 ../data/dynamo/dynamo.vel.x ../data/dynamo/dynamo.vel.y ../data/dynamo/dynamo.vel.z
+coord ../data/dynamo/dynamo.x ../data/dynamo/dynamo.y ../data/dynamo/dynamo.z

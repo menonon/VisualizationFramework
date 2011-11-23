@@ -26,7 +26,7 @@ void VM_Test::draw(){
   std::cout << __FILE__ << ":draw B" << std::endl;
 
   glPointSize(10);
-  glDrawArrays(GL_POINTS,0,(vertex.size()+1)/3);
+  glDrawArrays(GL_POINTS,0,(vertex.size())/3/20);
   glPointSize(1);
 
   std::cout << __FILE__ << ":draw C" << std::endl;

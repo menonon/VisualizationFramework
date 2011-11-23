@@ -1,1 +1,1 @@
-./Amaterasu standalone.jconf ABC.txt
+./Amaterasu pcave.jconf ABC.txt

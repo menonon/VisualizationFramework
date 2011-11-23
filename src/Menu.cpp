@@ -1,7 +1,7 @@
 #include <ostream>
 #include "Menu.h"
 #include "VM_Test.h"
-
+#include "VM_ParticleTracer.h"
 
 Menu::Menu(UserInterfaces* ui_){
 
@@ -34,10 +34,14 @@ void Menu::createPalette(){
   
   allPalette.push_back(new Palette());
 
-  VM_Test* vm_test = new VM_Test(ui,allData.at(selectedData));
-  vm_test->init();
-  allVM.push_back(vm_test);
-
+//  VM_Test* vm_test = new VM_Test(ui,allData.at(selectedData));
+//  vm_test->init();
+//  allVM.push_back(vm_test);
+  VM_ParticleTracer* vm_pt = new VM_ParticleTracer(ui, allData.at(selectedData));
+  vm_pt->init();
+  allVM.push_back(vm_pt);
+  
+  
   allPalette.back()->setData(allData.at(selectedData));
   allPalette.back()->setVisualizeMethods(allVM.at(selectedVM));
   
@@ -67,7 +71,7 @@ void Menu::preFrame(){
   //  std::cout << __FILE__ << ":state:" << state <<std::endl;
   if(state==1){
     if(ui->button0 == gadget::Digital::TOGGLE_ON)createPalette();
-    if(ui->button1 == gadget::Digital::TOGGLE_ON)deletePalette();
+    if(ui->button1 == gadget::Digital::TOGGLE_ON);//deletePalette();
     if(ui->button2 == gadget::Digital::TOGGLE_OFF)state=0;
   }
   else if(state==0){

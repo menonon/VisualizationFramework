@@ -44,7 +44,7 @@ void UserInterfaces::preFrame(){
 
   //  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
   
-  //  std::cout << "wand" << wand << std::endl;
+  std::cout << "wand" << std::endl <<wand << std::endl;
   //std::cout << "head" << head << std::endl;
 
   /* Navigation */
@@ -57,7 +57,6 @@ void UserInterfaces::preFrame(){
   gmtl::Vec3f dir(wand*z_dir);
   gmtl::preMult(navMat, gmtl::makeTrans<gmtl::Matrix44f>(dir));
 
-
   const float rotScale(0.1);
   float yRot;
   if(joyStick0X>0.1 || joyStick0X<-0.1){
@@ -68,4 +67,7 @@ void UserInterfaces::preFrame(){
   float rotation = -1.0 * yRot * rotScale;
   gmtl::preMult(navMat, gmtl::makeRot<gmtl::Matrix44f>(gmtl::EulerAngleXYZf(0.0,rotation,0.0)));
 
+  gmtl::Matrix44f vw_M_w;
+  gmtl::invert(vw_M_w,navMat);
+  navWand = vw_M_w * wand;  
 }

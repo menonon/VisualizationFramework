@@ -77,9 +77,11 @@ void Coordinates::drawBoundingBox(){
   glVertexPointer(3,GL_DOUBLE,0,&boxVertex[0]);
   glColorPointer(3,GL_DOUBLE,0,&boxColor[0]);
 
+  glDisable(GL_LIGHTING);
   glLineWidth(3);
   glDrawArrays(GL_LINES,0,(boxVertex.size()+1)/3);
   glLineWidth(1);
+  glEnable(GL_LIGHTING);
 
   glDisableClientState(GL_COLOR_ARRAY);
   glDisableClientState(GL_VERTEX_ARRAY);
@@ -118,16 +120,50 @@ void Coordinates::createBoundingBox(){
 
 
 int Coordinates::getXindex(double at){
-  bool sign=false;
-  for(std::vector<double>::iterator it = x.begin();it<x.end();++it){
-    if(at-(*it)>=0){
-      /**/
+  std::cout << x.front() << "," << x.back() << "," << at << std::endl;
+  if(at<x.front())return -1;
+  if(x.back()<=at)return -1;
+
+  int i=0;
+  for(std::vector<double>::iterator it = x.begin();it!=x.end();++it){
+    if(at-(*it)<=0){
+      std::cout << "Xindex" << i << std::endl;
+      return i-1;
     }
+    ++i;
   }
+  std::cout << "X out of range" << std::endl;
+  return i;
 }
 int Coordinates::getYindex(double at){
-  
+  std::cout << y.front() << "," << y.back() << "," << at << std::endl;
+  if(at<y.front())return -1;
+  if(y.back()<=at)return -1;
+
+  int i=0;
+  for(std::vector<double>::iterator it = y.begin();it!=y.end();++it){
+    if(at-(*it)<=0){
+      std::cout << "Yindex" << i << std::endl;
+      return i-1;
+    }
+    ++i;
+  }
+  std::cout << "Y out of range" << std::endl;
+  return i;
 }
 int Coordinates::getZindex(double at){
-  
+  std::cout << z.front() << "," << z.back() << "," << at << std::endl;
+  if(at<z.front())return -1;
+  if(z.back()<=at)return -1;
+
+  int i=0;
+  for(std::vector<double>::iterator it = z.begin();it!=z.end();++it){
+    if(at-(*it)<=0){
+      std::cout << "Zindex" << i << std::endl;
+      return i-1;
+    }
+    ++i;
+  }
+  std::cout << "Z out of range" << std::endl;
+  return i;
 }

@@ -25,6 +25,7 @@ class UserInterfaces{
   void draw();
 
   gmtl::Matrix44f wand;
+  gmtl::Matrix44f navWand;
   gmtl::Matrix44f head;
   float joyStick0X;
   float joyStick0Y;
@@ -46,5 +47,6 @@ class UserInterfaces{
   gadget::AnalogInterface gJoyStick0Y;
 
   gmtl::Matrix44f navMat;
+
 };
 #endif
