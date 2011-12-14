@@ -96,6 +96,7 @@ void Amaterasu::contextPreDraw(){
 
 void Amaterasu::bufferPreDraw(){
   glClearColor(0.0,0.0,0.0,0.0);
+  //  glClearColor(1.0,1.0,1.0,0.0);
   glClear(GL_COLOR_BUFFER_BIT);
 }
 

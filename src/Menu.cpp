@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "VM_Test.h"
 #include "VM_ParticleTracer.h"
+#include "VM_LocalArrows.h"
 
 Menu::Menu(UserInterfaces* ui_){
 
@@ -40,10 +41,19 @@ void Menu::createPalette(){
   VM_ParticleTracer* vm_pt = new VM_ParticleTracer(ui, allData.at(selectedData));
   vm_pt->init();
   allVM.push_back(vm_pt);
-  
-  
+
   allPalette.back()->setData(allData.at(selectedData));
   allPalette.back()->setVisualizeMethods(allVM.at(selectedVM));
+
+  allPalette.push_back(new Palette());
+
+  VM_LocalArrows* vm_la = new VM_LocalArrows(ui, allData.at(selectedData));
+  vm_la->init();
+  allVM.push_back(vm_la);
+  selectedVM++;
+  allPalette.back()->setData(allData.at(selectedData));
+  allPalette.back()->setVisualizeMethods(allVM.at(selectedVM));
+
   
 }
 
@@ -76,6 +86,7 @@ void Menu::preFrame(){
   }
   else if(state==0){
     if(ui->button2 == gadget::Digital::TOGGLE_ON)state=1;
+    if(ui->button1 == gadget::Digital::TOGGLE_ON)selectedVM=(selectedVM+1)%allVM.size();
   }
   
 

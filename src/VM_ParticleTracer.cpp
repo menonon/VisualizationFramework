@@ -18,11 +18,12 @@ void VM_ParticleTracer::draw(){
   glEnableClientState(GL_VERTEX_ARRAY);
 
   for(std::vector<std::vector<double> >::iterator vvdit=tracers.begin();vvdit!=tracers.end();++vvdit){
+    //    glColor3f(0,0,0);
+    glColor3f(1,1,1);
     glVertexPointer(3,GL_DOUBLE,0,&((*vvdit)[0]));
     glDisable(GL_LIGHTING);
     glDrawArrays(GL_LINE_STRIP,0,((*vvdit).size())/3);
     glEnable(GL_LIGHTING);
-    
   }
   glDisableClientState(GL_VERTEX_ARRAY);
 }
@@ -45,6 +46,7 @@ void VM_ParticleTracer::preFrame(){
     
     tracers.push_back(vd);
   }
+  if(ui->button2 == gadget::Digital::ON)tracers.clear();
 }
 void VM_ParticleTracer::intraFrame(){
   /* integrate trace lines */

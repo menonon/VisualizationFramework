@@ -7,6 +7,7 @@
 #include <fstream>
 #include <ostream>
 #include <cstdlib>
+#include <cmath>
 
 Data::Data(Config* config,Coordinates* coord_){
 
@@ -16,7 +17,7 @@ Data::Data(Config* config,Coordinates* coord_){
   label = config->getLabel();
   path = config->getPath();
   coord = coord_;
-
+  maxValue = 0.0;
 
   data = new DataArray(boost::extents[dimension][coord->getZnum()][coord->getYnum()][coord->getXnum()]);
 
@@ -51,10 +52,12 @@ void Data::loadData(){
 	  ifs.read((char*)&temp,sizeof(double));
 	  //std::cout << n << ":" <<i << ":" << j << ":" << k << "::" << temp << std::endl;
 	  (*data)[n][i][j][k] = temp;
+	  if(maxValue < abs(temp))maxValue = temp;
 	}
       }
     }
     n++;
+
     ifs.close();
   }
 }
@@ -83,7 +86,7 @@ bool Data::getValue(int dim, double x_pos,double y_pos,double z_pos,double& ret)
   double volume_all = 1.0/(x_coor[1]-x_coor[0])*(y_coor[1]-y_coor[0])*(z_coor[1]-z_coor[0]);
   double volume_part[2][2][2];
   for(int i=0;i<2;++i)for(int j=0;j<2;++j)for(int k=0;k<2;++k)
-    volume_part[i][j][k] = 1.0 - volume_all * fabs(x_pos-x_coor[i]) * fabs(y_pos-y_coor[i]) * fabs(z_pos-z_coor[i]);
+    volume_part[i][j][k] = 1.0 - volume_all * abs(x_pos-x_coor[i]) * abs(y_pos-y_coor[i]) * abs(z_pos-z_coor[i]);
 
   double value[2][2][2];
   double ret_=0;
@@ -94,4 +97,8 @@ bool Data::getValue(int dim, double x_pos,double y_pos,double z_pos,double& ret)
 
   ret = ret_;
   return true;
+}
+
+double Data::getMaxValue(){
+  return maxValue;
 }

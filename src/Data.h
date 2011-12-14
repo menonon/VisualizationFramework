@@ -25,7 +25,7 @@ public:
   DataArray* getData();
   Coordinates* getCoord();
   bool getValue(int dim, double x_pos,double y_pos, double z_pos,double& ret);
-
+  double getMaxValue();
   
 private:
   int dimension;
@@ -37,7 +37,7 @@ private:
   
   void loadData();
   
-  
+  double maxValue;
   
   
 };

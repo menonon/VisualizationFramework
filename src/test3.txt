@@ -1,0 +1,2 @@
+data test3 3 ../data/test3/test-3.x ../data/test3/test-3.y ../data/test3/test-3.z
+coord ../data/test3/test-coord.x ../data/test3/test-coord.y ../data/test3/test-coord.z

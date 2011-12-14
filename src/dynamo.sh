@@ -1,1 +1,3 @@
-./Amaterasu standalone.jconf dynamo.txt
+
+./Amaterasu /home/menonon/qnap/VRJuggler/VRJugglerSettings/pi-cave.jconf dynamo.txt
+#./Amaterasu standalone.jconf dynamo.txt

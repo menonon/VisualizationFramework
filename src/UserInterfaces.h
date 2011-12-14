@@ -32,7 +32,7 @@ class UserInterfaces{
   int button0;
   int button1;
   int button2;
-
+  int button3;
   
 
  private:
