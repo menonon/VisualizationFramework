@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -10,8 +11,13 @@ public:
   Base(int num){std::cout << "Base COnstr(num)" << std::endl;}
   virtual ~Base(){using namespace std;cout << "Base Destr" << endl;}
   virtual void Func(){std::cout<<"BaseFunc"<< var <<std::endl;}
+  virtual std::string getName(){return name;}
   int var;
+  static std::string name;
+  virtual Base* getInstance(){Base* ret = new Base();return ret;};
 };
+
+std::string Base::name = "Basename";
 
 class Sub:public Base{
 public:
@@ -19,7 +25,24 @@ public:
   Sub(int num){using namespace std;cout << "Sub COnstr(num)"<<endl;}
   ~Sub(){using namespace std;cout << "Sub Destr" << endl;}
   virtual void Func(){std::cout<<"SubFunc"<< var <<std::endl;}
+  const static std::string subname;
+  virtual std::string getName(){return subname;}
+  virtual Base* getInstance(){Sub* ret=new Sub();return ret;}
 };
+
+const std::string Sub::subname = "Subname";
+
+class Subb:public Base{
+public:
+  Subb(){using namespace std;cout << "Subb Constr" << endl;var=200;}
+  Subb(int num){using namespace std;cout << "Subb COnstr(num)"<<endl;}
+  ~Subb(){using namespace std;cout << "Subb Destr" << endl;}
+  virtual void Func(){std::cout<<"SubbFunc"<< var <<std::endl;}
+  const static std::string subname;
+  virtual std::string getName(){return subname;}
+};
+
+const std::string Subb::subname = "Subbname";
 
 
 void reference(vector<Base*> &basearray){
@@ -75,6 +98,22 @@ int main(){
 
 
   reference(baseArray);
+
+
+  cout << base->name << "," << Base::name << endl;
+  cout << sub1->name << "," << Sub::name << endl;
+  sub1->name = "Sub";
+  cout << base->name << "," << Base::name << endl;
+  cout << sub1->name << "," << Sub::name << endl << endl;
+
+  cout << Sub::subname << "," << Subb::subname << endl;
+  for(vector<Base*>::iterator it = baseArray.begin(); it!=baseArray.end();it++){
+    cout << (*it)->getName() << endl;
+  }
+  
+  Base* base2 = base->getInstance();
+  cout << "getInstance:" << base2->name << endl;
+
 
   cout << "---" <<endl;
   delete base;

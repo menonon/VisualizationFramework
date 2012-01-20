@@ -1,12 +1,27 @@
 #include "VM_LocalArrows.h"
 #include <gmtl/gmtl.h>
 
+
 VM_LocalArrows::VM_LocalArrows(){}
 VM_LocalArrows::VM_LocalArrows(UserInterfaces* _ui, Data* _data){
   ui = _ui;
   data = _data;
+  name = "Local Arrows";
 }
 VM_LocalArrows::~VM_LocalArrows(){}
+
+VisualizeMethods* VM_LocalArrows::getInstance(){
+  VisualizeMethods* ret = new VM_LocalArrows();
+  return ret;
+}
+VisualizeMethods* VM_LocalArrows::getInstance(UserInterfaces* _ui, Data* _data){
+  VisualizeMethods* ret = new VM_LocalArrows(_ui,_data);
+  return ret;
+}
+void VM_LocalArrows::initName(){
+  name = "Local Arrows";
+}
+
 
 void VM_LocalArrows::draw(){
   std::cout << __FILE__ << ":draw" << std::endl;

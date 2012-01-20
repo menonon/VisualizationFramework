@@ -5,8 +5,11 @@ VisualizeMethods::VisualizeMethods(UserInterfaces* _ui, Data* _data){
   data = _data;
 }
 
-VisualizeMethods::VisualizeMethods(){}
+VisualizeMethods* VisualizeMethods::getInstance(){}
+VisualizeMethods* VisualizeMethods::getInstance(UserInterfaces* _ui, Data* _data){}
+void VisualizeMethods::initName(){}
 
+VisualizeMethods::VisualizeMethods(){}
 VisualizeMethods::~VisualizeMethods(){}
 
 void VisualizeMethods::draw(){}

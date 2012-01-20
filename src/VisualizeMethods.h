@@ -17,6 +17,10 @@ public:
   VisualizeMethods();
   VisualizeMethods(UserInterfaces* _ui, Data* _data);
   virtual ~VisualizeMethods();
+  
+  virtual VisualizeMethods* getInstance();
+  virtual VisualizeMethods* getInstance(UserInterfaces* _ui, Data* _data);
+  virtual void initName();
 
   virtual  void draw();
   virtual  void init();

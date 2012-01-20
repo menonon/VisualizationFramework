@@ -4,12 +4,30 @@
 #include <gmtl/Vec.h>
 #include <GL/gl.h>
 
-VM_ParticleTracer::VM_ParticleTracer(){}
+VM_ParticleTracer::VM_ParticleTracer(){
+  initName();
+}
 VM_ParticleTracer::VM_ParticleTracer(UserInterfaces* _ui, Data* _data){
   ui = _ui;
   data = _data;
+  initName();
 }
 VM_ParticleTracer::~VM_ParticleTracer(){}
+
+VisualizeMethods* VM_ParticleTracer::getInstance(){
+  VisualizeMethods* ret = new VM_ParticleTracer();
+  return ret;
+}
+
+VisualizeMethods* VM_ParticleTracer::getInstance(UserInterfaces* _ui, Data* _data){
+  VisualizeMethods* ret = new VM_ParticleTracer(_ui,_data);
+  return ret;
+}
+
+void VM_ParticleTracer::initName(){
+  name = "Particle Tracer";
+}
+
 
 void VM_ParticleTracer::draw(){
   /* draw points and lines*/
