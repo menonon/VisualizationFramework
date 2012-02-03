@@ -40,3 +40,4 @@ void Palette::intraFrame(){
 void Palette::contextPreDraw(){
   vm->contextPreDraw();
 }
+

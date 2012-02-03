@@ -33,7 +33,7 @@ class Palette{
   Data* data;
   VisualizeMethods* vm;  
 
-  
+
 };
 
 #endif

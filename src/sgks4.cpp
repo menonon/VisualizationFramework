@@ -7,7 +7,7 @@ using namespace std;
 
 class Base{
 public:
-  Base(){using namespace std;cout << "Base Constr" << endl;var=100;}
+  Base(){using namespace std;cout << "Base Constr" << endl;var=100;Func();}
   Base(int num){std::cout << "Base COnstr(num)" << std::endl;}
   virtual ~Base(){using namespace std;cout << "Base Destr" << endl;}
   virtual void Func(){std::cout<<"BaseFunc"<< var <<std::endl;}
@@ -21,7 +21,7 @@ std::string Base::name = "Basename";
 
 class Sub:public Base{
 public:
-  Sub(){using namespace std;cout << "Sub Constr" << endl;var=200;}
+  Sub(){using namespace std;cout << "Sub Constr" << endl;var=200;Func();}
   Sub(int num){using namespace std;cout << "Sub COnstr(num)"<<endl;}
   ~Sub(){using namespace std;cout << "Sub Destr" << endl;}
   virtual void Func(){std::cout<<"SubFunc"<< var <<std::endl;}

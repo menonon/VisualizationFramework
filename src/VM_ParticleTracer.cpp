@@ -6,11 +6,13 @@
 
 VM_ParticleTracer::VM_ParticleTracer(){
   initName();
+  initDimension();
 }
 VM_ParticleTracer::VM_ParticleTracer(UserInterfaces* _ui, Data* _data){
   ui = _ui;
   data = _data;
   initName();
+  initDimension();
 }
 VM_ParticleTracer::~VM_ParticleTracer(){}
 
@@ -28,6 +30,9 @@ void VM_ParticleTracer::initName(){
   name = "Particle Tracer";
 }
 
+void VM_ParticleTracer::initDimension(){
+  dimension = 3;
+}
 
 void VM_ParticleTracer::draw(){
   /* draw points and lines*/
@@ -51,7 +56,7 @@ void VM_ParticleTracer::contextPreDraw(){}
 void VM_ParticleTracer::preFrame(){
   /* set initial points from device info */
     
-  if(ui->button1 == gadget::Digital::TOGGLE_OFF){
+  if(ui->button0 == gadget::Digital::TOGGLE_OFF){
     double pos[3];
     double posw[3];
 //    for(int i=0;i<3;++i) pos[i] = ui->wand[i][3];
@@ -64,7 +69,7 @@ void VM_ParticleTracer::preFrame(){
     
     tracers.push_back(vd);
   }
-  if(ui->button2 == gadget::Digital::ON)tracers.clear();
+  if(ui->button1 == gadget::Digital::ON)tracers.clear();
 }
 void VM_ParticleTracer::intraFrame(){
   /* integrate trace lines */

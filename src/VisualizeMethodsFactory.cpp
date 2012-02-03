@@ -1,12 +1,12 @@
 #include "VisualizeMethodsFactory.h"
 
-VisualizeMethodFactory::VisualizeMethodFactory(){
+VisualizeMethodsFactory::VisualizeMethodsFactory(){
   VisualizeMethods* temp;
   int i=0;
-    while(){
+    while(true){
       switch (i){
-      case 0:temp = new LocalArrows();break;
-      case 1:temp = new ParticleTracer();break;
+      case 0:temp = new VM_LocalArrows();break;
+      case 1:temp = new VM_ParticleTracer();break;
       default:temp = NULL;break;
       }
       if(temp==NULL)break;

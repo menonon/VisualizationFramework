@@ -2,11 +2,15 @@
 #include <gmtl/gmtl.h>
 
 
-VM_LocalArrows::VM_LocalArrows(){}
+VM_LocalArrows::VM_LocalArrows(){
+  initName();
+  initDimension();
+}
 VM_LocalArrows::VM_LocalArrows(UserInterfaces* _ui, Data* _data){
   ui = _ui;
   data = _data;
-  name = "Local Arrows";
+  initName();
+  initDimension();
 }
 VM_LocalArrows::~VM_LocalArrows(){}
 
@@ -20,6 +24,9 @@ VisualizeMethods* VM_LocalArrows::getInstance(UserInterfaces* _ui, Data* _data){
 }
 void VM_LocalArrows::initName(){
   name = "Local Arrows";
+}
+void VM_LocalArrows::initDimension(){
+  dimension = 3;
 }
 
 
@@ -75,7 +82,7 @@ void VM_LocalArrows::contextPreDraw(){}
 void VM_LocalArrows::preFrame(){
 
 
-  if(ui->button1 == gadget::Digital::ON){
+  if(ui->button0 == gadget::Digital::ON){
     gmtl::Matrix44f mattemp;
     gmtl::Vec3f vectemp;
 

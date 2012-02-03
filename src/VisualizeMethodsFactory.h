@@ -8,8 +8,6 @@ class VisualizeMethodsFactory{
   VisualizeMethodsFactory();
   VisualizeMethods* getVM(int m,UserInterfaces* _ui,Data* _data);
 
-
- private:
   std::vector<VisualizeMethods*> VM;
 
 };

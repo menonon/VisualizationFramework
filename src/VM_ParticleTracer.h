@@ -14,7 +14,8 @@ class VM_ParticleTracer:public VisualizeMethods{
   VisualizeMethods* getInstance();
   VisualizeMethods* getInstance(UserInterfaces* _ui, Data* _data);
   void initName();
-
+  void initDimension();
+  
   void draw();
   void init();
   void contextPreDraw();

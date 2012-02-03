@@ -8,6 +8,7 @@ VisualizeMethods::VisualizeMethods(UserInterfaces* _ui, Data* _data){
 VisualizeMethods* VisualizeMethods::getInstance(){}
 VisualizeMethods* VisualizeMethods::getInstance(UserInterfaces* _ui, Data* _data){}
 void VisualizeMethods::initName(){}
+void VisualizeMethods::initDimension(){}
 
 VisualizeMethods::VisualizeMethods(){}
 VisualizeMethods::~VisualizeMethods(){}

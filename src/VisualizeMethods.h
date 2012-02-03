@@ -21,6 +21,7 @@ public:
   virtual VisualizeMethods* getInstance();
   virtual VisualizeMethods* getInstance(UserInterfaces* _ui, Data* _data);
   virtual void initName();
+  virtual void initDimension();
 
   virtual  void draw();
   virtual  void init();
@@ -32,7 +33,10 @@ public:
   
 
   std::string name;
+  int dimension;
 
+  bool draw_flag;
+  
   UserInterfaces* ui;
   Data* data;
   
