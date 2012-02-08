@@ -26,7 +26,7 @@ void Menu::init(std::vector<Data*> &data, std::vector<VisualizeMethods*> &vm){
   allData = data;
   allVM = vm;
 
-  
+  std::cout << __FILE__ << ":init" << std::endl;
 
   createPalette();
 
@@ -37,6 +37,7 @@ void Menu::init(std::vector<Data*> &data, std::vector<VisualizeMethods*> &vm){
 
 void Menu::createPalette(){
 
+  std::cout << __FILE__ << ":createPalette" << std::endl;
   for(std::vector<Data*>::iterator itd=allData.begin(); itd!=allData.end(); itd++){
     for(int i=0; i< vmf.VM.size(); i++){
       VisualizeMethods* vmtemp = vmf.getVM(i,ui,(*itd));
@@ -55,22 +56,33 @@ void Menu::createPalette(){
 
 void Menu::createPanel(){
   
+  std::cout << __FILE__ << ":createPanel" << std::endl;
   int dataSize = allData.size();
   int VMSize = vmf.VM.size();
 
-  int halfDataSize = dataSize/2;
-  int halfVMSize = VMSize/2;
+//  int halfDataSize = dataSize/2;
+//  int halfVMSize = VMSize/2;
 
-  for(int d=halfDataSize; d > -halfDataSize; d--){
-    for(int v=-halfVMSize; v < halfVMSize; v++){
-      
-      Panel* vtemp = new Panel(v-0.3, d, 0, 0.3, 0.3, 0.3);
+  float halfDataSize = dataSize/2.0;
+  float halfVMSize = VMSize/2.0;
+
+  std::cout << "dataSize:VMSize" << dataSize << ":" <<  VMSize << std::endl;
+  std::cout << "halfDataSize : halfVMSize" << halfDataSize << ":" << halfVMSize << std::endl;
+
+  double boxSize=0.3;
+  int panelNum = 3;
+  double boxInterval = panelNum * boxSize;
+
+  for(float d=halfDataSize; d > -halfDataSize; d-=1.0){
+    for(float v=-halfVMSize; v < halfVMSize; v+=1.0){
+	std::cout << "v:d" << v << d << std::endl;
+      Panel* vtemp = new Panel(boxInterval*v-boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
       visiblePanel.push_back(vtemp);
 
-      Panel* pretemp = new Panel(v, d, 0, 0.3, 0.3, 0.3);
+      Panel* pretemp = new Panel(boxInterval*v, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
       preFramePanel.push_back(pretemp);
       
-      Panel* intratemp = new Panel(v+0.3, d, 0, 0.3, 0.3, 0.3);
+      Panel* intratemp = new Panel(boxInterval*v+boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
       intraFramePanel.push_back(intratemp);
     }
   }
@@ -150,12 +162,15 @@ void Menu::preFrameMenu(){
   /* process device input for menu state ON*/
 
   /* hit test & set or unset preFramePalette*/
-
+  std::cout << __FILE__ << ":preFrameMenu" << std::endl;
   gmtl::Point3d wandpos = gmtl::makeTrans<gmtl::Point3d>(ui->navWand);
+
+  std::cout << "wandpos:" << wandpos << std::endl;
 
   int i=0;
   for(std::vector<Panel*>::iterator it = visiblePanel.begin(); it!=visiblePanel.end();it++){
     if((*it)->hitTest(wandpos)){
+      std::cout << __FILE__ << ":hit panel " << i << std::endl;
       (*it)->toggleState();
       if((*it)->getState())setDrawPalette(i);
       else unsetDrawPalette(i);
@@ -188,6 +203,7 @@ void Menu::preFrameMenu(){
 
 void Menu::drawMenu(){
   /*draw menu panels*/
+  std::cout << __FILE__ << ":drawMenu" << std::endl;
 
   for(std::vector<Panel*>::iterator it = visiblePanel.begin(); it != visiblePanel.end(); it++){
     (*it)->draw();

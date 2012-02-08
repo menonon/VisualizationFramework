@@ -15,6 +15,7 @@ public:
   int var;
   static std::string name;
   virtual Base* getInstance(){Base* ret = new Base();return ret;};
+  virtual bool staValClass(bool a){static bool st = false;if(a)st=a;return st;}
 };
 
 std::string Base::name = "Basename";
@@ -125,6 +126,12 @@ int main(){
   delete sub3;
   cout << "---" <<endl;
 
+  cout << "- - - - - - - - -" << endl;
+  Base bb1;
+  Base bb2;
+  cout << bb1.staValClass(false) << endl;
+  cout << bb2.staValClass(true) << endl;
+  cout << bb1.staValClass(false) << endl;
 
   return 0;
 }

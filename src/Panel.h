@@ -10,6 +10,7 @@ class Panel{
   virtual ~Panel();
 
   virtual void draw();
+  virtual void preFrame();
   virtual bool hitTest(gmtl::Point3d point);
   
   virtual void toggleState();
@@ -21,6 +22,7 @@ class Panel{
   double height,width,depth;
   gmtl::AABoxd testBox;
 
+  bool hitTestPrevious;
 
 
 };
