@@ -59,7 +59,7 @@ void UserInterfaces::preFrame(){
 
   const float rotScale(0.1);
   float yRot;
-  if(joyStick0X>0.1 || joyStick0X<-0.1){
+2  if(joyStick0X>0.1 || joyStick0X<-0.1){
     yRot = joyStick0X;
   }else{
     yRot = 0.0f;

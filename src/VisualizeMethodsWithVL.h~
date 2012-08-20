@@ -1,0 +1,8 @@
+#pragma once
+
+#include "VisualizeMethods.h"
+
+
+class VisualizeMethodsWithVL :public VisualizeMethods{
+
+};
