@@ -6,6 +6,19 @@
 #include "Panel.h"
 
 void draw(){
+
+  glClearColor(0,0,0,1);
+  glClear(GL_COLOR_BUFFER_BIT);
+
+  glBegin(GL_LINES);
+  glColor3d(1,1,1);
+  glVertex3d(0,0,0);
+  glVertex3d(1,1,0);
+  glEnd();
+
+
+
+  /*
   static Panel* panel = new Panel(0,0,-3,3,3,3);
 
   glClearColor(0,0,0,0);
@@ -15,6 +28,7 @@ void draw(){
   panel->draw();
   glDisable(GL_LIGHT0);
   glDisable(GL_LIGHTING);
+  */
 }
 
 void idle(){
@@ -35,12 +49,13 @@ void reshape(int width, int height){
 int main (int argc, char* argv[]){
 
   glutInit(&argc,argv);
-  glutInitDisplayMode(GLUT_RGBA);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
   glutCreateWindow(argv[0]);
 
   glutDisplayFunc(draw);
-  glutTimerFunc(0,timer,10);
+  //glutTimerFunc(0,timer,10);
   glutReshapeFunc(reshape);
+  glutIdleFunc(idle);
 
   glutMainLoop();
 
