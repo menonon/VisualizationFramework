@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+
+/** class inheritace test */
+
+class first{
+public:
+  int 
+};
+class second :public first{};
+class third :public second{};
