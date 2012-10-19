@@ -7,6 +7,7 @@ VisualizeMethodsFactory::VisualizeMethodsFactory(){
       switch (i){
       case 0:temp = new VM_LocalArrows();break;
       case 1:temp = new VM_ParticleTracer();break;
+      case 2:temp = new VM_MarchingCubes();break;
       default:temp = NULL;break;
       }
       if(temp==NULL)break;

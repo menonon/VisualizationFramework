@@ -13,11 +13,11 @@ VM_MarchingCubes::VM_MarchingCubes(UserInterfaces* _ui, Data* _data){
 VM_MarchingCubes::~VM_MarchingCubes(){}
 
 VisualizeMethods* VM_MarchingCubes::getInstance(){
-  VisualizeMethods* ret = new VM_LocalArrows();
+  VisualizeMethods* ret = new VM_MarchingCubes();
   return ret;
 }
 VisualizeMethods* VM_MarchingCubes::getInstance(UserInterfaces* _ui, Data* _data){
-  VisualizeMethods* ret = new VM_LocalArrows(_ui,_data);
+  VisualizeMethods* ret = new VM_MarchingCubes(_ui,_data);
   return ret;
 }
 void VM_MarchingCubes::initName(){
@@ -29,40 +29,40 @@ void VM_MarchingCubes::initDimension(){
 
 void VM_MarchingCubes::draw(){}
 void VM_MarchingCubes::init(){
-
-  mThreshould = 0.0;
-
+  
+  mThreshold = 0.0;
+  
   /** Data Generation for VL Marching Cubes */
   DataArray* tempData = data->getData();
   int sizeX = data->getCoord()->getXnum();
   int sizeY = data->getCoord()->getYnum();
   int sizeZ = data->getCoord()->getZnum();
   mImage = new vl::Image(sizeX, sizeY, sizeZ, sizeof(float), vl::IF_LUMINANCE,vl::IT_FLOAT); 
-
+  
   unsigned char* tempImage = mImage->pixels();
   float* tempImageFloat = reinterpret_cast<float*>(tempImage);
-
+  
   for(int i=0;i<sizeZ;i++){
     for(int j=0;j<sizeY;j++){
       for(int k=0;k<sizeX;k++){
-	tempImageFloat[sizeX*sizeY*i + sizeX*j + k] = static_cast<float>(tempData->(*data)[i][j][k]);
+	tempImageFloat[sizeX*sizeY*i + sizeX*j + k] = static_cast<float>((*tempData)[dimension-1][i][j][k]);
       }
     }
   }
-
-
+  
+  
   /* MerchingCube initialize */
-  float minX = date->getCoord()->getX(0);
-  float minY = date->getCoord()->getY(0);
-  float minZ = date->getCoord()->getZ(0);
-  float maxX = date->getCoord()->getX(sizeX-1);
-  float maxY = date->getCoord()->getY(sizeY-1);
-  float maxZ = date->getCoord()->getZ(sizeZ-1);
-
-
-
+  float minX = data->getCoord()->getX(0);
+  float minY = data->getCoord()->getY(0);
+  float minZ = data->getCoord()->getZ(0);
+  float maxX = data->getCoord()->getX(sizeX-1);
+  float maxY = data->getCoord()->getY(sizeY-1);
+  float maxZ = data->getCoord()->getZ(sizeZ-1);
+  
+  
+  
   mVolume = new vl::Volume;
-  mVolume->setup( reinterpret_cast(float*)mImage->pixels(), true, false, vl::fvec3(minX,minY,minZ), vl::fvec3(maxX,maxY,maxZ), vl::ivec3(mImage->width(), mImage->height(), mImage->depth()) );
+  mVolume->setup( reinterpret_cast<float*>(mImage->pixels()), true, false, vl::fvec3(minX,minY,minZ), vl::fvec3(maxX,maxY,maxZ), vl::ivec3(mImage->width(), mImage->height(), mImage->depth()) );
 
   mMarchingCubes.reset();
   mMarchingCubes.volumeInfo()->push_back( new vl::VolumeInfo(mVolume.get(), mThreshold) );
@@ -83,7 +83,7 @@ void VM_MarchingCubes::contextInit(){
 
   mEdgeRend[current] = new vl::EdgeRenderer;
   mEdgeRend[current]->setClearFlags(vl::CF_CLEAR_DEPTH);
-  mEdgeRend[current]->setFrameBuffer(mOGLContext.framebuffer());
+  mEdgeRend[current]->setFramebuffer(mOGLContext.framebuffer());
 
   mRend[current]->renderers().push_back(mEdgeRend[current].get());
 
@@ -109,10 +109,10 @@ void VM_MarchingCubes::contextInit(){
   mIsosurfGeom[current]->setNormalArray(mMarchingCubes.mNormsArray.get());
   mIsosurfGeom[current]->drawCalls()->push_back(mMarchingCubes.mDrawElements.get());
 
-  vl::ref<vl::Actor> actor = new vl::Actor(mIsosurface.get(), //////////////////////
+  vl::ref<vl::Actor> actor = new vl::Actor(mIsosurfGeom[current].get(), effect.get(), mTrans[current].get(), 0,0);
   
   
-  mScene[current].get()->tree()->addActor(teapot.get(), effect.get(), mTrans[current].get());//Geometry must be modified !!!!
+  mScene[current].get()->tree()->addActor(actor.get());
 
   mRend[current].get()->renderer()->setFramebuffer(mOGLContext.framebuffer());
 

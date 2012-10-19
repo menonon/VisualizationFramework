@@ -30,19 +30,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = /usr/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/menonon/VisualizationFramework/src
+CMAKE_SOURCE_DIR = /home/menonon/qnap/VisualizationFramework/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/menonon/VisualizationFramework/src
+CMAKE_BINARY_DIR = /home/menonon/qnap/VisualizationFramework/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -50,7 +50,7 @@ CMAKE_BINARY_DIR = /home/menonon/VisualizationFramework/src
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -60,7 +60,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/menonon/VisualizationFramework/src/CMakeFiles /home/menonon/VisualizationFramework/src/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/menonon/qnap/VisualizationFramework/src/CMakeFiles /home/menonon/qnap/VisualizationFramework/src/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/menonon/VisualizationFramework/src/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/menonon/qnap/VisualizationFramework/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -423,30 +423,6 @@ VisualizeMethodsFactory.cpp.s:
 	$(MAKE) -f CMakeFiles/VisualizationFramework.dir/build.make CMakeFiles/VisualizationFramework.dir/VisualizeMethodsFactory.cpp.s
 .PHONY : VisualizeMethodsFactory.cpp.s
 
-VisualizeMethodsWithVL.o: VisualizeMethodsWithVL.cpp.o
-.PHONY : VisualizeMethodsWithVL.o
-
-# target to build an object file
-VisualizeMethodsWithVL.cpp.o:
-	$(MAKE) -f CMakeFiles/VisualizationFramework.dir/build.make CMakeFiles/VisualizationFramework.dir/VisualizeMethodsWithVL.cpp.o
-.PHONY : VisualizeMethodsWithVL.cpp.o
-
-VisualizeMethodsWithVL.i: VisualizeMethodsWithVL.cpp.i
-.PHONY : VisualizeMethodsWithVL.i
-
-# target to preprocess a source file
-VisualizeMethodsWithVL.cpp.i:
-	$(MAKE) -f CMakeFiles/VisualizationFramework.dir/build.make CMakeFiles/VisualizationFramework.dir/VisualizeMethodsWithVL.cpp.i
-.PHONY : VisualizeMethodsWithVL.cpp.i
-
-VisualizeMethodsWithVL.s: VisualizeMethodsWithVL.cpp.s
-.PHONY : VisualizeMethodsWithVL.s
-
-# target to generate assembly for a file
-VisualizeMethodsWithVL.cpp.s:
-	$(MAKE) -f CMakeFiles/VisualizationFramework.dir/build.make CMakeFiles/VisualizationFramework.dir/VisualizeMethodsWithVL.cpp.s
-.PHONY : VisualizeMethodsWithVL.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -519,9 +495,6 @@ help:
 	@echo "... VisualizeMethodsFactory.o"
 	@echo "... VisualizeMethodsFactory.i"
 	@echo "... VisualizeMethodsFactory.s"
-	@echo "... VisualizeMethodsWithVL.o"
-	@echo "... VisualizeMethodsWithVL.i"
-	@echo "... VisualizeMethodsWithVL.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

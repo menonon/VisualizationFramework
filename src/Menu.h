@@ -7,6 +7,8 @@
 #ifndef __Menu_h
 #define __Menu_h
 
+#include <vlCore/OpenGLDefs.hpp>
+
 #include <vector>
 #include <algorithm>
 

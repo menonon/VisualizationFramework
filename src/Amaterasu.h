@@ -9,6 +9,7 @@
 #ifndef __Amaterasu_h
 #define __Amaterasu_h
 
+
 #include <string>
 #include <vector>
 #include <vrj/vrjConfig.h>

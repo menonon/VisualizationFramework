@@ -104,11 +104,12 @@ void VM_MarchingCubes::contextInit(){
   
 
 
-  mIsosurfGeom = new vl::Geometry;
-  mIsosurfGeom->setVertexArray(mMarchingCubes.mVertsArray.get());
-  mIsosurfGeom->setNormalArray(mMarchingCubes.mNormsArray.get());
-  mIsosurfGeom->drawCalls()->push_back(mMarchingCubes.mDrawElements.get());
-  
+  mIsosurfGeom[current] = new vl::Geometry;
+  mIsosurfGeom[current]->setVertexArray(mMarchingCubes.mVertsArray.get());
+  mIsosurfGeom[current]->setNormalArray(mMarchingCubes.mNormsArray.get());
+  mIsosurfGeom[current]->drawCalls()->push_back(mMarchingCubes.mDrawElements.get());
+
+  vl::ref<vl::Actor> actor = new vl::Actor(mIsosurface.get(), //////////////////////
   
   
   mScene[current].get()->tree()->addActor(teapot.get(), effect.get(), mTrans[current].get());//Geometry must be modified !!!!

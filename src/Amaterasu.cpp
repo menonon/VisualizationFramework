@@ -4,6 +4,7 @@
  *@version developping
  */
 
+#include <vlCore/OpenGLDefs.hpp>
 #include <GL/gl.h>
 #include "Amaterasu.h"
 #include <fstream>

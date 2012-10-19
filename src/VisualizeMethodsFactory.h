@@ -1,7 +1,8 @@
+#include <vlCore/OpenGLDefs.hpp>
 #include <iostream>
 #include "VM_LocalArrows.h"
 #include "VM_ParticleTracer.h"
-
+#include "VM_MarchingCubes.h"
 
 class VisualizeMethodsFactory{
  public:

@@ -18,6 +18,7 @@ Data::Data(Config* config,Coordinates* coord_){
   path = config->getPath();
   coord = coord_;
   maxValue = 0.0;
+  minValue = 0.0;
 
   data = new DataArray(boost::extents[dimension][coord->getZnum()][coord->getYnum()][coord->getXnum()]);
 
@@ -52,7 +53,8 @@ void Data::loadData(){
 	  ifs.read((char*)&temp,sizeof(double));
 	  //std::cout << n << ":" <<i << ":" << j << ":" << k << "::" << temp << std::endl;
 	  (*data)[n][i][j][k] = temp;
-	  if(maxValue < abs(temp))maxValue = temp;
+	  if(maxValue < temp)maxValue = temp;
+	  if(minValue > temp)minValue = temp;
 	}
       }
     }
@@ -94,11 +96,15 @@ bool Data::getValue(int dim, double x_pos,double y_pos,double z_pos,double& ret)
     value[i][j][k] = (*data)[dim][z_index[k]][y_index[j]][x_index[i]] * volume_part[i][j][k];
     ret_+=value[i][j][k];
   }
-
+  
   ret = ret_;
   return true;
 }
 
 double Data::getMaxValue(){
   return maxValue;
+}
+
+double Data::getMinValue(){
+  return minValue;
 }

@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 
+
 #include "Config.h"
 #include "Coordinates.h"
 
@@ -24,8 +25,9 @@ public:
   ~Data();
   DataArray* getData();
   Coordinates* getCoord();
-  bool getValue(int dim, double x_pos,double y_pos, double z_pos,double& ret);
+  bool getValue(int dim, double x_pos,double y_pos, double z_pos, double& ret);
   double getMaxValue();
+  double getMinValue();
   
 private:
   int dimension;
@@ -38,7 +40,7 @@ private:
   void loadData();
   
   double maxValue;
-  
+  double minValue;
   
 };
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vlCore/OpenGLDefs.hpp>
+
 #include "VisualizeMethods.h"
 
 #include <vrj/Display/Display.h>
@@ -22,6 +24,7 @@
 #include <vlCore/Time.hpp>
 #include <vlCore/GlobalSettings.hpp>
 #include <vlGraphics/EdgeRenderer.hpp>
+#include <vlVolume/MarchingCubes.hpp>
 
 #include <GL/gl.h>
 
@@ -52,12 +55,12 @@ class VisualizeMethodsWithVL:public VisualizeMethods{
   virtual  void intraFrame();
   virtual  void postFrame();
 
- private:
+  emptyVLOpenGLContext mOGLContext;
   vl::ref<vl::ResourceDatabase> mObj;
   std::map<int, vl::ref<vl::Rendering> > mRend;
   std::map<int, vl::ref<vl::SceneManagerActorTree> > mScene;
   std::map<int, vl::ref<vl::Transform> >mTrans;
-  emptyVLOpenGLContext mOGLContext;
+
   
   std::map<int, vl::ref<vl::EdgeRenderer> > mEdgeRend;
 
