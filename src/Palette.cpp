@@ -41,3 +41,6 @@ void Palette::contextPreDraw(){
   vm->contextPreDraw();
 }
 
+void Palette::contextInit(){
+  vm->contextInit();
+}

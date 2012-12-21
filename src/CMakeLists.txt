@@ -2,8 +2,12 @@ project(VisualizationFramework)
 
 cmake_minimum_required(VERSION 2.8)
 
-set(VL_ROOT "/home/menonon/VRJUGGLER")
+#set(VL_ROOT "/home/menonon/VRJUGGLER")
+set(VL_ROOT "/home/menonon/VISUALIZATIONLIBRARY")
 list(APPEND CMAKE_MODULE_PATH /home/menonon/VRJUGGLER/cmake)
+list(APPEND CMAKE_MODULE_PATH /home/menonon/VISUALIZATIONLIBRARY/cmake)
+list(APPEND CMAKE_MODULE_PATH /home/menonon/rpavlik-cmake-modules-1c73e35)
+
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)

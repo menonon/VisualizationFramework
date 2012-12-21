@@ -27,10 +27,61 @@ void VM_MarchingCubes::initDimension(){
   dimension = 1;
 }
 
-void VM_MarchingCubes::draw(){}
-void VM_MarchingCubes::init(){
+void VM_MarchingCubes::draw(){
+
+  std::cout << __FILE__ << ":Aa" << std::endl;
+
+  int current = vrj::opengl::DrawManager::instance()->getCurrentContext();
+  int vp[4];
+  std::cout << __FILE__ << ":Ab" << std::endl;
+  glGetIntegerv(GL_VIEWPORT, vp);
+  std::cout << __FILE__ << ":Ac" << std::endl;
+  std::cout << "currentContext:" << current << std::endl;
   
+  mRend[current]->camera()->viewport()->set(vp[0], vp[1], vp[2], vp[3]);
+
+  std::cout << __FILE__ << ":B" << std::endl;
+
+  float MVM_array[16];
+  glGetFloatv(GL_MODELVIEW_MATRIX, MVM_array);
+  //gmtl::Matrix44f MVM_gmtl;
+  //MVM_gmtl.set(MVM_array);
+  vl::mat4 MVM_vl(MVM_array);
+  mRend[current].get()->camera()->setViewMatrix(MVM_vl);
+  
+  std::cout << __FILE__ << ":C" << std::endl;
+
+  float PM_array[16];
+  glGetFloatv(GL_PROJECTION_MATRIX, PM_array);
+  vl::mat4 PM_vl(PM_array);
+  mRend[current].get()->camera()->setProjectionMatrix(PM_vl, vl::PMT_PerspectiveProjectionFrustum);
+
+  std::cout << __FILE__ << ":D" << std::endl;
+
+  mRend[current]->renderer()->setClearFlags(vl::CF_DO_NOT_CLEAR);
+
+  std::cout << __FILE__ << ":Ea" << std::endl;
+
+  glMatrixMode(GL_MODELVIEW);
+  glPushMatrix();
+  glLoadIdentity();
+  std::cout << __FILE__ << ":Eb" << std::endl;
+  mRend[current].get()->render();
+  std::cout << __FILE__ << ":Ec" << std::endl;
+  glMatrixMode(GL_MODELVIEW);
+  glPopMatrix();
+
+  std::cout << __FILE__ << ":F" << std::endl;
+
+}
+void VM_MarchingCubes::init(){
+
+  std::cout << __FILE__ << ":init:A" << std::endl;
+  
+  vl::VisualizationLibrary::init();
+
   mThreshold = 0.0;
+  mThreshold = (data->getMaxValue() - data->getMinValue())*0.5;
   
   /** Data Generation for VL Marching Cubes */
   DataArray* tempData = data->getData();
@@ -71,8 +122,11 @@ void VM_MarchingCubes::init(){
 
 }
 void VM_MarchingCubes::contextInit(){
+
   int current = vrj::opengl::DrawManager::instance()->getCurrentContext();
-  
+
+  std::cout << __FILE__ << ":conInit:A." << current << std::endl;
+
   vl::initializeOpenGL();
   mOGLContext.initGLContext(true);
   mOGLContext.setContinuousUpdate(false);
@@ -94,13 +148,13 @@ void VM_MarchingCubes::contextInit(){
   mTrans[current] = new vl::Transform;
   mRend[current].get()->transform()->addChild(mTrans[current].get());
 
-  vl::ref<vl::Effect> effect = new vl::Effect;
-  effect->shader()->enable(vl::EN_DEPTH_TEST);
-  effect->shader()->setRenderState( new vl::Light, 0);
-  effect->shader()->enable(vl::EN_LIGHTING);
-  effect->shader()->gocMaterial()->setDiffuse(vl::gold);
-  effect->shader()->gocMaterial()->setSpecular(vl::white);
-  effect->shader()->gocMaterial()->setShininess(60);
+  mEffect[current] = new vl::Effect;
+  mEffect[current]->shader()->enable(vl::EN_DEPTH_TEST);
+  mEffect[current]->shader()->setRenderState( new vl::Light, 0);
+  mEffect[current]->shader()->enable(vl::EN_LIGHTING);
+  mEffect[current]->shader()->gocMaterial()->setDiffuse(vl::gold);
+  mEffect[current]->shader()->gocMaterial()->setSpecular(vl::white);
+  mEffect[current]->shader()->gocMaterial()->setShininess(60);
   
 
 
@@ -109,20 +163,22 @@ void VM_MarchingCubes::contextInit(){
   mIsosurfGeom[current]->setNormalArray(mMarchingCubes.mNormsArray.get());
   mIsosurfGeom[current]->drawCalls()->push_back(mMarchingCubes.mDrawElements.get());
 
-  vl::ref<vl::Actor> actor = new vl::Actor(mIsosurfGeom[current].get(), effect.get(), mTrans[current].get(), 0,0);
+  mActor[current] = new vl::Actor(mIsosurfGeom[current].get(), mEffect[current].get(), mTrans[current].get(), 0,0);
   
   
-  mScene[current].get()->tree()->addActor(actor.get());
+  mScene[current].get()->tree()->addActor(mActor[current].get());
 
   mRend[current].get()->renderer()->setFramebuffer(mOGLContext.framebuffer());
 
-  
+  std::cout << __FILE__ << "conInit:B" << std::endl;
 
 
 }
 
 
 void VM_MarchingCubes::contextPreDraw(){}
-void VM_MarchingCubes::preFrame(){}
+void VM_MarchingCubes::preFrame(){
+  
+}
 void VM_MarchingCubes::intraFrame(){}
 void VM_MarchingCubes::postFrame(){}

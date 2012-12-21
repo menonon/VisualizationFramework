@@ -25,11 +25,13 @@ class VM_MarchingCubes:public VisualizeMethodsWithVL{
   void postFrame();
 
 
- private:
+
   vl::ref<vl::Image> mImage;
   vl::MarchingCubes mMarchingCubes;
   vl::ref<vl::Volume> mVolume;
   std::map<int, vl::ref<vl::Geometry> > mIsosurfGeom;
+  std::map<int, vl::ref<vl::Actor> > mActor;
+  std::map<int, vl::ref<vl::Effect> > mEffect;
 
   float mThreshold;
 };

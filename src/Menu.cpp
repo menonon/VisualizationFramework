@@ -149,7 +149,12 @@ void Menu::intraFrame(){
   }
 }
 
-void Menu::contextInit(){}
+void Menu::contextInit(){
+  for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
+    (*it)->contextInit();
+  }
+
+}
 
 void Menu::contextPreDraw(){
   for(std::vector<Palette*>::iterator it = allPalette.begin();it<allPalette.end();++it){
