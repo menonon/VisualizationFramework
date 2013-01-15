@@ -21,6 +21,9 @@ Panel::Panel(double x, double y, double z, double h, double w, double d){
 
   on=false;
   hitTestPrevious = false;
+
+  
+
 }
 
 Panel::~Panel(){}

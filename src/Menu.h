@@ -61,6 +61,9 @@ class Menu{
   std::vector<Panel*> preFramePanel;
   std::vector<Panel*> intraFramePanel;
 
+  std::vector<Panel*> VMNamePanel;
+  std::vector<Panel*> DataNamePanel;
+
   //deprecated variables
   //int selectedPalette;
   //int selectedData;

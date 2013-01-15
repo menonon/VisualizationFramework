@@ -2,6 +2,7 @@
 
 #include <GL/gl.h>
 #include <gmtl/gmtl.h>
+#include <string>
 
 class Panel{
 
@@ -21,7 +22,7 @@ class Panel{
   double pos[3];
   double height,width,depth;
   gmtl::AABoxd testBox;
-
+  std::string name;
   bool hitTestPrevious;
 
 

@@ -76,16 +76,28 @@ void Menu::createPanel(){
   for(float d=halfDataSize; d > -halfDataSize; d-=1.0){
     for(float v=-halfVMSize; v < halfVMSize; v+=1.0){
 	std::cout << "v:d" << v << d << std::endl;
-      Panel* vtemp = new Panel(boxInterval*v-boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
-      visiblePanel.push_back(vtemp);
-
-      Panel* pretemp = new Panel(boxInterval*v, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
-      preFramePanel.push_back(pretemp);
-      
-      Panel* intratemp = new Panel(boxInterval*v+boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
-      intraFramePanel.push_back(intratemp);
+	Panel* vtemp = new Panel(boxInterval*v-boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
+	visiblePanel.push_back(vtemp);
+	
+	Panel* pretemp = new Panel(boxInterval*v, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
+	preFramePanel.push_back(pretemp);
+	
+	Panel* intratemp = new Panel(boxInterval*v+boxSize, boxInterval*d+1, 1, boxSize,boxSize,boxSize);
+	intraFramePanel.push_back(intratemp);
     }
   }
+  
+  for(float v=-halfVMSize; v < halfVMSize; v+=1.0){
+    Panel* vmtemp = new Panel(boxInterval*v, boxInterval*(halfDataSize)+halfDataSize+0.1, 1, boxSize, boxInterval, boxSize);
+    VMNamePanel.push_back(vmtemp);
+  }
+  
+  for(float d=halfDataSize; d > -halfDataSize; d-=1.0){
+    Panel* dtemp = new Panel(boxInterval*(-halfVMSize)-halfVMSize , boxInterval*d+1, 1, boxSize, boxInterval, boxSize);
+    DataNamePanel.push_back(dtemp);
+  }
+  
+
   
 }
 
@@ -221,6 +233,15 @@ void Menu::drawMenu(){
   for(std::vector<Panel*>::iterator it = intraFramePanel.begin(); it != intraFramePanel.end(); it++){
     (*it)->draw();
   }
+
+  for(std::vector<Panel*>::iterator it = VMNamePanel.begin(); it != VMNamePanel.end(); it++){
+    (*it)->draw();
+  }
+
+  for(std::vector<Panel*>::iterator it = DataNamePanel.begin(); it != DataNamePanel.end(); it++){
+    (*it)->draw();
+  }
+
 
 }
 
