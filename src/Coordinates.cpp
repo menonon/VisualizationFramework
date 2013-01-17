@@ -71,6 +71,8 @@ void Coordinates::draw(){
 }
 
 void Coordinates::drawBoundingBox(){
+
+  glEnable(GL_DEPTH_TEST);
   glEnableClientState(GL_VERTEX_ARRAY);
   glEnableClientState(GL_COLOR_ARRAY);
 

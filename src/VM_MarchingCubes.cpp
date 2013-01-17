@@ -117,7 +117,7 @@ void VM_MarchingCubes::init(){
 
   mMarchingCubes.reset();
   mMarchingCubes.volumeInfo()->push_back( new vl::VolumeInfo(mVolume.get(), mThreshold) );
-  mMarchingCubes.run(false);
+  mMarchingCubes.run(true);
 
 
 }
@@ -178,7 +178,37 @@ void VM_MarchingCubes::contextInit(){
 
 void VM_MarchingCubes::contextPreDraw(){}
 void VM_MarchingCubes::preFrame(){
-  
+ 
+    static float ffor = data->getMinValue();
+    static const float interval = (data->getMaxValue() - data->getMinValue())/100.0;
+    static bool up=true;
+    static int count=0;
+    
+    if(count>100){
+
+	if(up){
+	    ffor+=interval;
+	    mThreshold = ffor;
+	    if(mThreshold > data->getMaxValue())up=false;
+	}else{
+	    ffor-=interval;
+	    mThreshold = ffor;
+	    if(mThreshold < data->getMinValue())up=true;
+	}
+	
+	std::cout << __FILE__ << ":preFrame mThreshold" << mThreshold << std::endl;
+	
+	std::cout << __FILE__ << ":preFrame A" << std::endl;
+	mMarchingCubes.reset();
+	std::cout << __FILE__ << ":preFrame B" << std::endl;
+	mMarchingCubes.volumeInfo()->push_back( new vl::VolumeInfo(mVolume.get(), mThreshold) );
+	std::cout << __FILE__ << ":preFrame C" << std::endl;
+	mMarchingCubes.run(true);
+	std::cout << __FILE__ << ":preFrame D" << std::endl;
+    
+	count = 0;
+    }
+    count++;
 }
 void VM_MarchingCubes::intraFrame(){}
 void VM_MarchingCubes::postFrame(){}

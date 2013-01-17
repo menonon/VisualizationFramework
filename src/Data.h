@@ -28,10 +28,12 @@ public:
   bool getValue(int dim, double x_pos,double y_pos, double z_pos, double& ret);
   double getMaxValue();
   double getMinValue();
-  
+
+  std::string label;  
+
 private:
   int dimension;
-  std::string label;
+
   std::vector<std::string> path;
   DataArray *data;
 

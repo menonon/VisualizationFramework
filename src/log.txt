@@ -1,5 +1,5 @@
 Visualization Library v2011.9.1168 [f32]
-Jul 20 2012 - 07:55:09 - GCC compiler [DEBUG] [x64]
+Oct 11 2012 - 20:48:30 - GCC compiler [DEBUG] [x64]
 
  --- Environment ---
 VL_LOGFILE_PATH <not present>
@@ -13,5 +13,3 @@ Data path = ../data
 Verbosity level = NORMAL
 Check OpenGL States = YES
 
-GL_PROGRAM_POINT_SIZE: capability *IS* supported! This is a harmless glitch either in your GL driver or in VL.
-GL_PROGRAM_POINT_SIZE: capability *IS* supported! This is a harmless glitch either in your GL driver or in VL.

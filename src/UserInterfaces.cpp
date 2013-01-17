@@ -42,10 +42,10 @@ void UserInterfaces::preFrame(){
   joyStick0X = (gJoyStick0X->getData() -0.5);
   joyStick0Y = (gJoyStick0Y->getData() -0.5);
 
-  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
+//  std::cout << joyStick0X<<":"<<joyStick0Y<<std::endl;
   
-  std::cout << "wand" << std::endl << wand << std::endl;
-  std::cout << "head" << std::endl << head << std::endl;
+//  std::cout << "wand" << std::endl << wand << std::endl;
+//  std::cout << "head" << std::endl << head << std::endl;
 
   /* Navigation */
   gmtl::Vec3f z_dir;
@@ -60,7 +60,7 @@ void UserInterfaces::preFrame(){
   const float rotScale(0.1);
   float yRot;
   if(joyStick0X>0.1 || joyStick0X<-0.1){
-    yRot = joyStick0X*0.5;
+    yRot = -joyStick0X*0.5;
   }else{
     yRot = 0.0f;
   }

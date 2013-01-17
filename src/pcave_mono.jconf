@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?org-vrjuggler-jccl-settings configuration.version="3.0"?>
+<configuration xmlns="http://www.vrjuggler.org/jccl/xsd/3.0/configuration" name="/home/menonon/VM20130115/VisualizationFramework/src/pcave_mono.jconf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.vrjuggler.org/jccl/xsd/3.0/configuration http://www.vrjuggler.org/jccl/xsd/3.0/configuration.xsd">
+   <elements>
+      <input_manager name="InputManager0" version="2">
+         <driver_path>/usr/local/lib/gadgeteer-2.0.0/drivers</driver_path>
+         <driver>Trackd_drv</driver>
+      </input_manager>
+      <analog_proxy name="AnalogProxyWandX" version="1">
+         <device>TrackdController0</device>
+         <unit>0</unit>
+      </analog_proxy>
+      <analog_proxy name="AnalogProxyWandY" version="1">
+         <device>TrackdController0</device>
+         <unit>1</unit>
+      </analog_proxy>
+      <digital_proxy name="DigitalProxy0" version="1">
+         <device>TrackdController0</device>
+         <unit>0</unit>
+      </digital_proxy>
+      <digital_proxy name="DigitalProxy1" version="1">
+         <device>TrackdController0</device>
+         <unit>1</unit>
+      </digital_proxy>
+      <digital_proxy name="DigitalProxy2" version="1">
+         <device>TrackdController0</device>
+         <unit>2</unit>
+      </digital_proxy>
+      <digital_proxy name="DigitalProxy3" version="1">
+         <device>TrackdController0</device>
+         <unit>3</unit>
+      </digital_proxy>
+      <digital_proxy name="DigitalProxy4" version="1">
+         <device>TrackdController0</device>
+         <unit>4</unit>
+      </digital_proxy>
+      <digital_proxy name="DigitalProxy5" version="1">
+         <device>TrackdController0</device>
+         <unit>5</unit>
+      </digital_proxy>
+      <user name="VRJugglerUser0" version="1">
+         <head_position>VJHead</head_position>
+         <interocular_distance>0.069</interocular_distance>
+      </user>
+      <position_proxy name="PositionProxyHead" version="1">
+         <device>TrackdSensor</device>
+         <unit>0</unit>
+         <position_filters>
+            <position_transform_filter name="01" version="1">
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <custom_scale>1.0</custom_scale>
+               <device_units>Meters</device_units>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+            </position_transform_filter>
+         </position_filters>
+      </position_proxy>
+      <position_proxy name="PositionProxyWand" version="1">
+         <device>TrackdSensor</device>
+         <unit>1</unit>
+         <position_filters>
+            <position_transform_filter name="01" version="1">
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <custom_scale>1.0</custom_scale>
+               <device_units>Meters</device_units>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+            </position_transform_filter>
+         </position_filters>
+      </position_proxy>
+      <display_system name="DisplaySystem0" version="3">
+         <number_of_pipes>1</number_of_pipes>
+         <pipes>-1</pipes>
+         <use_swap_group>false</use_swap_group>
+      </display_system>
+      <display_window name="DisplayWindow0" version="6">
+         <origin>0</origin>
+         <origin>10</origin>
+         <size>1400</size>
+         <size>1050</size>
+         <pipe>0</pipe>
+         <frame_buffer_config>
+            <opengl_frame_buffer_config name="frame_buffer_config 0" version="4">
+               <visual_id>-1</visual_id>
+               <red_size>1</red_size>
+               <green_size>1</green_size>
+               <blue_size>1</blue_size>
+               <alpha_size>1</alpha_size>
+               <auxiliary_buffer_count>0</auxiliary_buffer_count>
+               <depth_buffer_size>1</depth_buffer_size>
+               <stencil_buffer_size>1</stencil_buffer_size>
+               <accum_red_size>1</accum_red_size>
+               <accum_green_size>1</accum_green_size>
+               <accum_blue_size>1</accum_blue_size>
+               <accum_alpha_size>1</accum_alpha_size>
+               <num_sample_buffers>1</num_sample_buffers>
+               <num_samples>2</num_samples>
+               <use_create_context_attribs>false</use_create_context_attribs>
+               <gl_context_major_version>3</gl_context_major_version>
+               <gl_context_minor_version>0</gl_context_minor_version>
+               <gl_context_flags>0</gl_context_flags>
+            </opengl_frame_buffer_config>
+         </frame_buffer_config>
+         <stereo>true</stereo>
+         <border>true</border>
+         <hide_mouse>true</hide_mouse>
+         <full_screen>true</full_screen>
+         <always_on_top>false</always_on_top>
+         <active>true</active>
+         <simulator_viewports>
+            <simulator_viewport name="CHANGEME" version="3">
+               <origin>0.0</origin>
+               <origin>0.0</origin>
+               <size>1.0</size>
+               <size>1.0</size>
+               <view>Stereo</view>
+               <user>VRJugglerUser0</user>
+               <active>false</active>
+               <vertical_fov>80.0</vertical_fov>
+               <simulator_plugin>
+                  <default_simulator name="01" version="3">
+                     <camera_pos>PositionProxyHead</camera_pos>
+                     <wand_pos>PositionProxyWand</wand_pos>
+                     <draw_projections>false</draw_projections>
+                     <surface_color>0.0</surface_color>
+                     <surface_color>0.0</surface_color>
+                     <surface_color>0.0</surface_color>
+                     <head_model>${VJ_DATA_DIR}/data/models/head.flt</head_model>
+                     <wand_model>${VJ_DATA_DIR}/data/models/wand.flt</wand_model>
+                  </default_simulator>
+               </simulator_plugin>
+            </simulator_viewport>
+         </simulator_viewports>
+         <surface_viewports>
+            <surface_viewport name="01" version="3">
+               <origin>0.0</origin>
+               <origin>0.0</origin>
+               <size>1.0</size>
+               <size>1.0</size>
+               <view>Left Eye</view>
+               <lower_left_corner>-1.524</lower_left_corner>
+               <lower_left_corner>0.0</lower_left_corner>
+               <lower_left_corner>0.0</lower_left_corner>
+               <lower_right_corner>1.524</lower_right_corner>
+               <lower_right_corner>0.0</lower_right_corner>
+               <lower_right_corner>0.0</lower_right_corner>
+               <upper_right_corner>1.524</upper_right_corner>
+               <upper_right_corner>2.441</upper_right_corner>
+               <upper_right_corner>0.0</upper_right_corner>
+               <upper_left_corner>-1.524</upper_left_corner>
+               <upper_left_corner>2.441</upper_left_corner>
+               <upper_left_corner>0.0</upper_left_corner>
+               <user>VRJugglerUser0</user>
+               <active>true</active>
+               <tracked>false</tracked>
+               <tracker_proxy />
+               <auto_corner_update>0</auto_corner_update>
+            </surface_viewport>
+         </surface_viewports>
+         <keyboard_mouse_device_name>Keyboard/MouseInputHandler0</keyboard_mouse_device_name>
+         <allow_mouse_locking>true</allow_mouse_locking>
+         <lock_key>0</lock_key>
+         <start_locked>false</start_locked>
+         <sleep_time>75</sleep_time>
+      </display_window>
+      <trackd_controller name="TrackdController0" version="1">
+         <shared_memory_key>4127</shared_memory_key>
+         <min>-1.0</min>
+         <max>1.0</max>
+      </trackd_controller>
+      <keyboard_mouse_device name="Keyboard/MouseInputHandler0" version="2">
+         <mouse_sensitivity>1.0</mouse_sensitivity>
+         <scroll_as_buttons>false</scroll_as_buttons>
+         <scroll_up_button>53</scroll_up_button>
+         <scroll_down_button>54</scroll_down_button>
+         <scroll_left_button>55</scroll_left_button>
+         <scroll_right_button>56</scroll_right_button>
+      </keyboard_mouse_device>
+      <keyboard_mouse_proxy name="Keyboard/MouseProxy0" version="1">
+         <device>Keyboard/MouseInputHandler0</device>
+      </keyboard_mouse_proxy>
+      <trackd_sensor name="TrackdSensor" version="1">
+         <shared_memory_key>4126</shared_memory_key>
+         <position_filters>
+            <position_transform_filter name="01" version="1">
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_translate>0.0</pre_translate>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <pre_rotation>0.0</pre_rotation>
+               <custom_scale>1.0</custom_scale>
+               <device_units>Feet</device_units>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_translate>0.0</post_translate>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+               <post_rotation>0.0</post_rotation>
+            </position_transform_filter>
+         </position_filters>
+      </trackd_sensor>
+      <alias name="VJHead" version="1">
+         <proxy>PositionProxyHead</proxy>
+      </alias>
+      <alias name="VJWand" version="1">
+         <proxy>PositionProxyWand</proxy>
+      </alias>
+      <alias name="VJButton0" version="1">
+         <proxy>DigitalProxy0</proxy>
+      </alias>
+      <alias name="VJButton1" version="1">
+         <proxy>DigitalProxy1</proxy>
+      </alias>
+      <alias name="VJButton2" version="1">
+         <proxy>DigitalProxy2</proxy>
+      </alias>
+      <alias name="VJButton3" version="1">
+         <proxy>DigitalProxy3</proxy>
+      </alias>
+      <alias name="VJButton4" version="1">
+         <proxy>DigitalProxy4</proxy>
+      </alias>
+      <alias name="VJButton5" version="1">
+         <proxy>DigitalProxy5</proxy>
+      </alias>
+      <alias name="VJAnalog0" version="1">
+         <proxy>AnalogProxyWandX</proxy>
+      </alias>
+      <alias name="VJAnalog1" version="1">
+         <proxy>AnalogProxyWandY</proxy>
+      </alias>
+      <alias name="VJKeyboard" version="1">
+         <proxy>Keyboard/MouseProxy0</proxy>
+      </alias>
+      <simulated_digital_device name="DigitalSystemConrols" version="2">
+         <keyboard_mouse_proxy>Keyboard/MouseProxy0</keyboard_mouse_proxy>
+         <key_pair>
+            <key_modifier_pair name="CHANGEME" version="1">
+               <modifier_key>-1</modifier_key>
+               <key>KEY_ESC</key>
+            </key_modifier_pair>
+         </key_pair>
+      </simulated_digital_device>
+      <digital_proxy name="VJSystemStopKernelProxy" version="1">
+         <device>DigitalSystemConrols</device>
+         <unit>0</unit>
+      </digital_proxy>
+      <alias name="VJSystemStopKernel" version="1">
+         <proxy>VJSystemStopKernelProxy</proxy>
+      </alias>
+   </elements>
+</configuration>
+
