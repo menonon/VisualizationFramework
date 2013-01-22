@@ -2,9 +2,12 @@ project(VisualizationFramework)
 
 cmake_minimum_required(VERSION 2.8)
 
-#set(VL_ROOT "/home/menonon/VRJUGGLER")
-set(VL_ROOT "/home/menonon/VISUALIZATIONLIBRARY")
-set(CAIRO_ROOT_DIR "/home/menonon/CAIRO")
+
+#set(CAIRO_VERSION "1.12.8")
+set(VL_ROOT "/home/menonon/VRJUGGLER")
+#set(VL_ROOT "/home/menonon/VISUALIZATIONLIBRARY")
+#set(CAIRO_ROOT_DIR "/home/menonon/CAIRO")
+set(CAIRO_ROOT_DIR "/home/menonon/VRJUGGLER")
 list(APPEND CMAKE_MODULE_PATH /home/menonon/VRJUGGLER/cmake)
 list(APPEND CMAKE_MODULE_PATH /home/menonon/VISUALIZATIONLIBRARY/cmake)
 list(APPEND CMAKE_MODULE_PATH /home/menonon/rpavlik-cmake-modules-1c73e35)
